@@ -7,6 +7,7 @@
                     <div class="modal_auth_wrap">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
+
                         <ul class="nav nav-tabs no-margin">
                             <li id="li_login" class="active"><a href="#tab_auth_login" data-toggle="tab">ĐĂNG
                                     NHẬP</a></li>
@@ -15,7 +16,8 @@
                         <div class="tab-content">
                             <div class="tab-pane fade in active" id="tab_auth_login">
                                 <form class="form-horizontal frm-login-ajax1 frm-user-ajax" id="frm-login-ajax1"
-                                    role="form" method="POST" action="dang-nhap">
+                                      role="form" method="POST" action="{{ url('/login') }}">
+                                    {!! csrf_field() !!}
                                     <div class="hide alert alert-danger"></div>
                                     <input type="hidden" name="_token" value="XTSOxkD3o3Gc855SwAPRI58OEkFGT3HphVoUAoL9">
                                     <input type="hidden" name="current_url" value="">
