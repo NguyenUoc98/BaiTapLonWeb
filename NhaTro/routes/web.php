@@ -16,7 +16,8 @@ Route::get('/',[
     'uses'      => 'PageController@getIndex'
 ]);
 
-
+Route::get('login','Auth\LoginController@getLogin');
+Route::post('login','Auth\LoginController@postLogin');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
