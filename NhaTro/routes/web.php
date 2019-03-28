@@ -16,6 +16,12 @@ Route::get('/',[
     'uses'      => 'PageController@getIndex'
 ]);
 
+Route::get('category/{id}',[
+    'as'        => 'category',
+    'uses'      => 'PageController@getCategory'
+]);
+
+
 Route::get('login','Auth\LoginController@getLogin');
 Route::post('login','Auth\LoginController@postLogin');
 Route::group(['prefix' => 'admin'], function () {

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/tcg/voyager" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/composer" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/jakub-onderka/php-console-highlighter" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/jakub-onderka/php-console-color" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/arrilot/laravel-widgets" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/beyondcode/laravel-dump-server" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/larapack/voyager-hooks" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/larapack/doctrine-support" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/larapack/hooks" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/console" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings load_method="CUSTOM_LOADER" custom_loader_path="$PROJECT_DIR$/NhaTro/vendor/autoload.php" />
+    </phpunit_settings>
+  </component>
+</project>

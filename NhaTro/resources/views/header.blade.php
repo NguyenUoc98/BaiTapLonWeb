@@ -8,7 +8,7 @@
                 <div class="pull-right">
                     <a class="btn btn-submit-room load_modal_login pull-left" data-toggle="modal"
                         data-target="#modal_auth" href="javascript: void(0);">Đăng tin miễn phí</a>
-                    <div class="header-top-avatar"><img class="img-responsive" src="themes/client/img/avatar.png">
+                    <div class="header-top-avatar"><img class="img-responsive" src="/themes/client/img/avatar.png">
                     </div>
                     <div class="header-top-user ">
                         <div class="user-login"><a class="load_modal_login" href="#tab_auth_login" data-toggle="modal"

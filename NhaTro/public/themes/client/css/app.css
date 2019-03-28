@@ -166,6 +166,10 @@ body {font-family: 'Open Sans', Tahoma, Arial, sans-serif;}
     background-color: #33cc66;
 }
 
+.nav>li>a {
+    padding: 10px 10px;
+}
+
 .navbar-nav>li>a:focus{
     color: #FFF;
     background-color: #33cc66;
@@ -926,22 +930,76 @@ input[type="radio"] .styled:checked + label::after {
 }
 
 /*tab*/
-.nav-tabs { border-bottom: 2px solid #DDD; margin-right: 0px; }
-    .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
-    .nav-tabs > li > a { /*padding-left: 0px; padding-right: 30px;*/ font-size: 14px; font-weight: 600; border: none; color: #2e3339; }
-        .nav-tabs > li.active > a, .nav-tabs > li > a:hover { font-size: 14px; font-weight: 600; border: none; color: #33cc66 !important; background: transparent; }
-        .nav-tabs > li > a::after { content: ""; background: #33cc66; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
-    .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
-.tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
-.tab-pane { padding: 10px 0; padding-bottom: 20px; }
-.nav-tabs>li {float: right;}
+.nav-tabs {
+    border-bottom: 2px solid #DDD; 
+    margin-right: 0px;  
+    margin-top: 30px;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { 
+    border-width: 0; 
+}
+
+.nav-tabs > li > a { 
+    font-size: 14px; 
+    font-weight: 600; 
+    border: none; 
+    color: #2e3339; 
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li > a:hover { 
+    font-size: 14px; 
+    font-weight: 600; 
+    border: none; 
+    color: #33cc66 !important; 
+    background: transparent; 
+}
+        
+.nav-tabs > li > a::after { 
+    content: ""; 
+    background: #33cc66; 
+    height: 2px; 
+    position: absolute; 
+    width: 100%; left: 0px; 
+    bottom: -1px; 
+    transition: all 250ms ease 0s; 
+    transform: scale(0); 
+}
+    
+.nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { 
+    transform: scale(1); 
+}
+.tab-nav > li > a::after { 
+    background: #21527d none repeat scroll 0% 0%; 
+    color: #fff; 
+}
+
+.tab-pane { 
+    padding: 10px 0; 
+    padding-bottom: 20px; 
+
+}
+.nav-tabs>li {
+    float: right;
+
+}
 /*.tab-content{padding:5px}*/
-.card .nav-tabs>li {font-weight: 600;}
-/*.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {background: #f1f1f1;}*/
+.card .nav-tabs>li {
+    font-weight: 600;
+}
 
-.card {background: #f1f1f1 none repeat scroll 0% 0%; font-family: 'Open Sans'; box-shadow: none; margin-bottom: 0px; font-size: 14px; }
+.card {
+    background: #f1f1f1 none repeat scroll 0% 0%; 
+    font-family: 'Open Sans';
+     box-shadow: none; 
+     margin-bottom: 0px; 
+     font-size: 14px; 
+    }
 
-.tab-content {font-family: 'Open Sans'; font-weight: 600;}
+.tab-content {
+    font-family: 'Open Sans'; 
+    font-weight: 600;
+}
 
 .tab-content .table .table-title {
     font-size: 13px;
@@ -949,9 +1007,10 @@ input[type="radio"] .styled:checked + label::after {
 }
 
 .menu-tab-title {
-    position: absolute;
-    font-size: 22px;
-    margin-top: 5px;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: 15px;
+    border-bottom: 2px solid #33cc66;
 }
 
 .menu-tab-title span {
@@ -1004,11 +1063,38 @@ input[type="radio"] .styled:checked + label::after {
 
 /*.tab-content {padding: 10px 0px; overflow: auto; min-height: 200px;}*/
 .thumbnail-list {}
-.thumbnail-list .thumbnail-item {padding-left: 7px; padding-right: 7px; margin-bottom: 20px;}
-.thumbnail-list .thumbnail {padding: 0px; border: 0px; margin-bottom: 15px; position: relative; background: #000; border-radius: 0px;}
-.thumbnail-list .thumbnail .caption {background: #2E3339; color: #FFF; font-size: 13px; padding: 0px 5px;}
-.thumbnail-list .thumbnail .caption .title {font-size: 13px; overflow: hidden; margin-bottom: 5px; height: 45px;}
-.thumbnail-list .thumbnail .caption .title h2 {font-size: 14px;font-weight: 600;margin-top: 5px; margin-bottom: 0px; line-height: 1.42857143;}
+.thumbnail-list .thumbnail-item {
+    padding-left: 7px;
+     padding-right: 7px; 
+     margin-bottom: 20px;
+    }
+.thumbnail-list .thumbnail {
+    padding: 0px; 
+    border: 0px; 
+    margin-bottom: 15px; 
+    position: relative; 
+    background: #000; 
+    border-radius: 0px;
+}
+.thumbnail-list .thumbnail .caption {
+    background: #2E3339; 
+    color: #FFF; 
+    font-size: 13px; 
+    padding: 0px 5px;
+}
+.thumbnail-list .thumbnail .caption .title {
+    font-size: 13px; 
+    overflow: hidden;
+     margin-bottom: 5px; 
+     height: 45px;
+    }
+.thumbnail-list .thumbnail .caption .title h2 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 5px; 
+    margin-bottom: 0px; 
+    line-height: 1.42857143;
+}
 .thumbnail-list .thumbnail .caption .title h2 a {text-decoration: none; color: #FFF;}
 .thumbnail-list .thumbnail .caption .title h2 a:hover {color: #33cc66;}
 .thumbnail-list .thumbnail .caption .desc {font-size: 12px; font-weight: 600; margin-bottom: 2px; height: 18px; overflow: hidden;}
@@ -1477,10 +1563,6 @@ input[type="radio"] .styled:checked + label::after {
 Detail Css
 =================================================================
 */
-
-.room-main-content {
-    margin-top: 30px;
-}
 
 .pt-breadcrumb .breadcrumb {
     border-radius: 0px;
@@ -2807,7 +2889,7 @@ Detail Css
     opacity: 0.9;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 699px) {
     .slider {
         height: 510px;
     }
@@ -2816,6 +2898,19 @@ Detail Css
     }
     #btn-dangtin {
         float: left;
+    }
+    .menu-tab-title-right {
+        display: none;
+    }
+    .single-sidebar-widget {
+        display: none;
+    }
+    
+}
+
+@media (min-width: 700px) {
+    #menu {
+        display: none;
     }
 }
 
@@ -2826,3 +2921,37 @@ Detail Css
     font-weight: 600;
     
 }
+
+.menu-tab-title-right{
+    margin-top: 30px;
+}
+
+.thumbnail-list{
+    margin-top: 20px;
+}
+
+.nav-tabs{
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.nav-tabs>li {
+    border-bottom: 1px solid #DDD;
+    padding: 5px;
+}
+
+.section-heading {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+  background-color: #f2f4f5;
+  padding: 10px 25px;
+  border-left: 4px solid #33cc66; }
+  .section-heading h5 {
+    text-transform: uppercase;
+    font-size: 20px;
+    line-height: 1; }
+    @media only screen and (max-width: 767px) {
+      .section-heading h5 {
+        font-size: 16px; } }
+
