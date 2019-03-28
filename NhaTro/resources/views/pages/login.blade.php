@@ -22,13 +22,13 @@
                             </div>
                         </div>
                         <div class="col-md-8 col-md-offset-2 login-page">
-                            <form role="form" method="POST" action="{{route('login')}}" >
+                            <form role="form" method="POST" id="login-rieng" >
                                 {!! csrf_field() !!}
                                 <div class="form-group">
                                     <label for="email" class="col-sm-3 col-md-3 no-padding-vertical control-label"> Email
                                     </label>
                                     <div class="col-sm-8 col-md-8">
-                                        <input type="email" class="form-control" name="email" id="email"
+                                        <input type="email" class="form-control" name="email" id="email_login"
                                                placeholder="Địa chỉ email ..." value="">
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                                     <label for="password" class="col-sm-3 col-md-3 no-padding-vertical control-label">Mật
                                         khẩu</label>
                                     <div class="col-sm-8 col-md-8">
-                                        <input type="password" name="password" class="form-control" id="password"
+                                        <input type="password" name="password" class="form-control" id="password_login"
                                                placeholder="Mật khẩu ...">
                                     </div>
                                 </div>
@@ -51,6 +51,43 @@
                                     </div>
                                 </div>
                             </form>
+                            <script type="text/javascript">
+                                $(document).ready(function(){
+                                    $('#login-rieng').on('submit',function(event) {
+                                        event.preventDefault();
+                                        // var formData = $(this).serialize();
+                                        var email_login = $('#email_login').val();
+                                        var password_login = $('#password_login').val();
+                                        console.log(email_login);
+                                        console.log(password_login);
+
+
+                                        $.ajax({
+                                            url         : "{{ route('login') }}", // the url where we want to POST
+                                            method       : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                                            data        : {
+                                                email: email_login,
+                                                password: password_login,
+                                                _token: '{{csrf_token()}}',
+                                            },
+                                            success:function(data){
+                                                if(data==0){
+                                                    alert("Bạn đã đăng nhập thành công !");
+                                                    $('#login').trigger("reset");
+                                                    location.reload();
+                                                } else if (data==2) {
+                                                    alert("các trường không được để trống !");
+                                                }
+                                                else alert("Tài khoản hoặc mật khẩu không chính xác ");
+                                            },
+                                            error:function(data){
+                                                alert(data);
+                                            }
+                                        });
+                                    });
+
+                                });
+                            </script>
                             <div class="clearfix"></div>
                             <div class="forgot-and-reg">
                                 <p><a class="forgot" href="dang-ky">Tạo tài khoản mới</a> nếu bạn chưa có tài khoản ?</p>

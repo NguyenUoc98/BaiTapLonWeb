@@ -44,12 +44,15 @@ class PageController extends Controller
 
 //    Xu ly chuc nang dang ky
     public function postRegister(Request $request){
-        if(strcmp($request->password_re, $request->repassword) == 0){
+        // nếu giá trị các request không tồn tại
+        if (!isset($request->name)||!isset($request->password_re)||!isset($request->repassword)||!isset($request->email_re))
+        {$message=2;}
+        else if(strcmp($request->password_re, $request->repassword) == 0){
             $message=3; // mat khau va nhap lai mat khau khong trung nhau
         }
-//        else if(sizeof(User::where('email','=',$request->email_re)) > 0) {
-//            $message=4; //ton tai tai khoan
-//        }
+        else if(sizeof(User::where('email','=',$request->email_re)) > 0) {
+            $message=4; //ton tai tai khoan
+        }
         else {
             $user = new User();
             $user->name = $request->name;
@@ -76,17 +79,6 @@ class PageController extends Controller
         return view('pages.tintuc_detail', compact('post'));
     }
 
-    // Comment
-//    public function postComment(Request $request){
-//        $commnet = new Comment();
-//        $user->id = $request->name;
-//        $user->email = $request->email;
-//        $user->password = bcrypt($request->password);
-//        $user->full_name = $request->name;
-//        $comment->content = $request->content;
-//        $comment->save();
-//        return view('pages.house_detail/{{id}}', compact('comments'));
-//    }
 
 
     public function getAddHouse(){
@@ -132,10 +124,6 @@ class PageController extends Controller
             //Mat khau moi khac voi nhap lai mat khau
             $message="Mật khẩu mới và nhập lại mật khẩu phải giống nhau.";
         }else{
-//            $validatedData = $request->validate([
-//                'currentpass' => 'required',
-//                'newpass' => 'required|string|min:6|confirmed',
-//            ]);
             //Cap nhat mat khau moi
             $user = Auth::user();
             $user->password = bcrypt($request->newpass);

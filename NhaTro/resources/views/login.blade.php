@@ -18,12 +18,11 @@
                         <div class="tab-content">
                             <div class="tab-pane fade in active" id="tab_auth_login">
                                 <form class="form-horizontal"
-                                      role="form" id="login" method="POST" name="login" >
-                                    {!! csrf_field() !!}
+                                      role="form" id="login" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="email" class="col-sm-3 col-md-3 control-label">Email</label>
                                         <div class="col-sm-8 col-md-8">
-                                            <input type="email" class="form-control" name="email" id="email"
+                                            <input type="email" class="form-control" name="email" id="email_xx"
                                                 placeholder="Địa chỉ email ..." value="">
                                             <span class="help-block"></span>
                                         </div>
@@ -32,7 +31,7 @@
                                         <label for="password" class="col-sm-3 col-md-3 control-label">Mật
                                             khẩu</label>
                                         <div class="col-sm-8 col-md-8">
-                                            <input type="password" name="password" class="form-control" id="password"
+                                            <input type="password" name="password" class="form-control" id="password_xx"
                                                 placeholder="Mật khẩu ...">
                                             <span class="help-block"></span>
                                         </div>
@@ -50,40 +49,36 @@
                                         $(document).ready(function(){
                                             $('#login').on('submit',function(event) {
                                                 event.preventDefault();
-                                                var email = $('#email').val();
-                                                var password = $('#password').val();
-                                                console.log(email);
-                                                console.log(password);
+                                                var email_xx = $('#email_xx').val();
+                                                var password_xx = $('#password_xx').val();
+                                                console.log(email_xx);
+                                                console.log(password_xx);
                                                 $.ajax({
                                                     url         : "{{ route('login') }}", // the url where we want to POST
                                                     method       : 'POST', // define the type of HTTP verb we want to use (POST for our form)
                                                     data        : {
-                                                        email: email,
-                                                        password: password,
+                                                        email: email_xx,
+                                                        password: password_xx,
                                                         _token: '{{csrf_token()}}',
                                                     },
                                                     success:function(data){
-
-                                                       if(data==0){
-                                                           alert("Bạn đã đăng nhập thành công !");
-                                                           $('#login').trigger("reset");
-                                                           location.reload();
-                                                       } else if (data==2) {
-                                                           alert("các trường không được để trống !");
-                                                       }
-                                                       else alert("Tài khoản hoặc mật khẩu không chính xác ");
-
+                                                        if(data==0){
+                                                            alert("Bạn đã đăng nhập thành công !");
+                                                            $('#login').trigger("reset");
+                                                            location.reload();
+                                                        } else if (data==2) {
+                                                            alert("các trường không được để trống !");
+                                                        }
+                                                        else alert("Tài khoản hoặc mật khẩu không chính xác ");
                                                     },
                                                     error:function(data){
                                                         alert(data);
                                                     }
                                                 });
                                             });
-
                                         });
                                     </script>
                                     <div class="clearfix"></div>
-                                    <hr>
                                     <hr>
                                     <div class="row">
                                         <div class="text-center text-center-auth">
@@ -92,17 +87,6 @@
                                         </div>
                                     </div>
                                 </form>
-                                <script type="text/javascript">
-                                    // function myFunction() {
-                                    //     var x = document.forms["login"]["email"].value;
-                                    //     if (x == "") {
-                                    //         var text="trường email không được để trống !";
-                                    //         document.getElementById("error").innerHTML = text;
-                                    //         return false;
-                                    //     }
-                                    //
-                                    // }
-                                </script>
                             </div>
 
 
@@ -110,7 +94,6 @@
                             <div class="tab-pane fade" id="tab_auth_register">
                                 <form class="form-horizontal" role="form"
                                       method="POST" id="register" >
-                                    {!! csrf_field() !!}
                                     <div class="form-group">
                                         <label for="txt_fullname" class="col-sm-4 control-label">Tên hiển
                                             thị</label>
@@ -123,7 +106,7 @@
                                     <div class="form-group">
                                         <label for="txt_email" class="col-sm-4 control-label">Email</label>
                                         <div class="col-sm-6">
-                                            <input type="email" name="email" class="form-control" id="email_re"
+                                            <input type="email" name="email_re" class="form-control" id="email_re"
                                                 placeholder="Email ..." value="">
                                             <span class="help-block"></span>
                                         </div>
@@ -131,7 +114,7 @@
                                     <div class="form-group">
                                         <label for="txt_password" class="col-sm-4 control-label">Mật khẩu</label>
                                         <div class="col-sm-6">
-                                            <input type="password" name="password" class="form-control" id="password_re"
+                                            <input type="password" name="password_re" class="form-control" id="password_re"
                                                 placeholder="Mật khẩu ...">
                                             <span class="help-block"></span>
                                         </div>
@@ -153,7 +136,14 @@
                                     </div>
                                 </form>
                                 <script type="text/javascript">
+
+
+
                                     $(document).ready(function(){
+
+
+
+                                        // đăng ký
                                         $('#register').on('submit',function(event) {
                                             event.preventDefault();
                                             var name = $('#name').val();
@@ -173,21 +163,21 @@
                                                     _token: '{{csrf_token()}}',
                                                 },
                                                 success:function(data){
-                                                    console.log(data);
+                                                    alert(data);
 
-                                                    if (data==2) {
-                                                        alert("các trường không được để trống !");
-                                                    }
-                                                    else if (data==3){
-                                                       alert ("Mật khẩu và nhập lại mật khẩu không trùng nhau");
-                                                    }
-                                                    else if (data==4){
-                                                        alert("Email đã tồn tại!");
-                                                    }
-                                                    else {
-                                                        alert("Bạn đã đăng Ký thành công !");
-                                                        $('#login').trigger("reset");
-                                                    }
+                                                    // if (data==2) {
+                                                    //     alert("các trường không được để trống !");
+                                                    // }
+                                                    // else if (data==3){
+                                                    //    alert ("Nhập lại mật khẩu không chính xác !");
+                                                    // }
+                                                    // else if (data==4){
+                                                    //     alert("Email đã tồn tại !");
+                                                    // }
+                                                    // else {
+                                                    //     alert("Bạn đã đăng Ký thành công !");
+                                                    //     $('#login').trigger("reset");
+                                                    // }
 
                                                 },
                                                 error:function(data){
