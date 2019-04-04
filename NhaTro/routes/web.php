@@ -22,8 +22,11 @@ Route::get('category/{id}',[
 ]);
 
 
-Route::get('login','Auth\LoginController@getLogin');
-Route::post('login','Auth\LoginController@postLogin');
+Route::post('login',[
+    'as'=>'login',
+    'uses'=>'PageController@postLogin'
+]);
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+

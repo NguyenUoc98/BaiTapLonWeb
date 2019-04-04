@@ -15,12 +15,10 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane fade in active" id="tab_auth_login">
-                                <form class="form-horizontal frm-login-ajax1 frm-user-ajax" id="frm-login-ajax1"
-                                      role="form" method="POST" action="{{ url('/login') }}">
+                                <form class="form-horizontal"
+                                      role="form" method="POST" action="{{route('login')}}">
                                     {!! csrf_field() !!}
                                     <div class="hide alert alert-danger"></div>
-                                    <input type="hidden" name="_token" value="XTSOxkD3o3Gc855SwAPRI58OEkFGT3HphVoUAoL9">
-                                    <input type="hidden" name="current_url" value="">
                                     <div class="form-group">
                                         <label for="email" class="col-sm-3 col-md-3 control-label">Email</label>
                                         <div class="col-sm-8 col-md-8">
