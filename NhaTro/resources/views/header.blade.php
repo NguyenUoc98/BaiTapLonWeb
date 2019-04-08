@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="pull-left" id="logo">
-                    <a class="logo" href=""><img class="img-responsive" src="/img/logo.png"></a>
+                    <a class="logo" href="{{route('trang-chu')}}"><img class="img-responsive" src="/img/logo.png"></a>
                 </div>
                 @if (Auth::check())
                     <div class="pull-right">
@@ -12,10 +12,20 @@
                         <div class="header-top-avatar"><img class="img-responsive" src="{{Voyager::image(Auth::user()->avatar)}}">
                         </div>
                         <div class="header-top-user ">
-                            <div class="user-login"><a class="load_modal_login" href="#tab_auth_login" data-toggle="modal"
-                                                       data-target="#modal_auth">Xin Chào</a></div>
-                            <div class="user-register load_modal_register"><a href="javascript: void(0);"
-                                                                              data-toggle="modal" data-target="#modal_auth">Tạo tài khoản</a></div>
+                            {{--<div class="say-hello" style="color:black;">Xin Chào</div>--}}
+                            <div class="user-name" style="color:black;">
+                                {{Auth::user()->name}}
+                                {{--<ul class="hihi">--}}
+                                    {{--<li><a href="#">Thông tin</a></li>--}}
+                                    {{--<li><a href="#">Bài đăng</a></li>--}}
+                                    {{--<li><a href="#">Lịch sử</a></li>--}}
+                                    {{--<li><a href="#">Đăng xuất</a></li>--}}
+                                {{--</ul>--}}
+                            </div>
+                            <div class="logout">
+                                <a href="logout" id="logout-user">Đăng Xuất</a>
+                            </div>
+
                         </div>
                     </div>
                 @else

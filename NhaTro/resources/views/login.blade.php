@@ -13,6 +13,8 @@
                                     NHẬP</a></li>
                             <li id="li_register"><a href="#tab_auth_register" data-toggle="tab">ĐĂNG KÝ</a></li>
                         </ul>
+
+
                         <div class="tab-content">
                             <div class="tab-pane fade in active" id="tab_auth_login">
                                 <form class="form-horizontal"
@@ -64,12 +66,18 @@
                                     </div>
                                 </form>
                             </div>
+
+
+
                             <div class="tab-pane fade" id="tab_auth_register">
-                                <form class="form-horizontal frm-user-ajax" id="frm-register-ajax" role="form"
-                                    method="POST" action="dang-ky">
+                                <form class="form-horizontal" role="form"
+                                      method="POST" action="{{route('register')}}">
+                                    {!! csrf_field() !!}
                                     <div class="hide alert alert-danger"></div>
-                                    <input type="hidden" name="_token" value="XTSOxkD3o3Gc855SwAPRI58OEkFGT3HphVoUAoL9">
-                                    <input type="hidden" name="current_url" value="">
+
+
+                                    {{--<input type="hidden" name="current_url" value="">--}}
+
                                     <div class="form-group">
                                         <label for="txt_fullname" class="col-sm-4 control-label">Tên hiển
                                             thị</label>
@@ -104,23 +112,26 @@
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="txt_confirm" class="col-sm-4 control-label">Xác nhận</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" name="captcha" class="form-control" id="captcha"
-                                                placeholder="Mã xác nhận ..." value="">
-                                            <span class="help-block"></span>
-                                            <span class="help-block"><small>Gồm 5 ký tự phân biệt chữ Hoa và chữ
-                                                    thường. </small></span>
-                                            <div class="col-md-12">
-                                                <img src="captcha/default?dXcUOjL9" alt="captcha" class="captcha-img"
-                                                    data-refresh-config="default">
-                                                <span class="pull-right"><a title="Lấy mã xác nhận mới"
-                                                        class="recapcha enable-tooltip" href="javascript:void(0);"><i
-                                                            class="fa fa-refresh fa-2x text-success"></i></a></span>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                    {{--<div class="form-group">--}}
+                                        {{--<label for="txt_confirm" class="col-sm-4 control-label">Xác nhận</label>--}}
+                                        {{--<div class="col-sm-6">--}}
+                                            {{--<input type="text" name="captcha" class="form-control" id="captcha"--}}
+                                                {{--placeholder="Mã xác nhận ..." value="">--}}
+                                            {{--<span class="help-block"></span>--}}
+                                            {{--<span class="help-block"><small>Gồm 5 ký tự phân biệt chữ Hoa và chữ--}}
+                                                    {{--thường. </small></span>--}}
+                                            {{--<div class="col-md-12">--}}
+                                                {{--<img src="captcha/default?dXcUOjL9" alt="captcha" class="captcha-img"--}}
+                                                    {{--data-refresh-config="default">--}}
+                                                {{--<span class="pull-right"><a title="Lấy mã xác nhận mới"--}}
+                                                        {{--class="recapcha enable-tooltip" href="javascript:void(0);"><i--}}
+                                                            {{--class="fa fa-refresh fa-2x text-success"></i></a></span>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+
+
                                     <div class="form-group">
                                         <div class="col-sm-offset-4 col-sm-8">
                                             <button type="submit" class="btn btn-auth-submit">Đăng ký tài
