@@ -16,17 +16,32 @@ Route::get('/',[
     'uses'      => 'PageController@getIndex'
 ]);
 
+
+
 Route::get('category/{id}',[
     'as'        => 'category',
     'uses'      => 'PageController@getCategory'
 ]);
 
 
+
 Route::post('login',[
     'as'=>'login',
     'uses'=>'PageController@postLogin'
 ]);
+
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+
+Route::get('logout','PageController@getLogout');
+
+
+
+Route::post('register',[
+    'as'=>'register',
+    'uses'=>'PageController@postRegister'
+]);
 
