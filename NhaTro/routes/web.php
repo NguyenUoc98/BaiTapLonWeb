@@ -39,7 +39,6 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('logout','PageController@getLogout');
 
 
-
 Route::post('register',[
     'as'=>'register',
     'uses'=>'PageController@postRegister'
