@@ -22,9 +22,17 @@
                                     {{--<li><a href="#">Đăng xuất</a></li>--}}
                                 {{--</ul>--}}
                             </div>
-                            <div class="logout">
-                                <a href="logout" id="logout-user">Đăng Xuất</a>
+                            <div class="dropdown mini-menu" id="mini-menu">
+                                <a href="#" id="dropdown-menu-header" class="dropdown-toggle" data-toggle="dropdown">Thông Tin Tài Khoản<span class="caret"></span></a>
+
+                                <ul class="dropdown-menu" id="sub-menu-login">
+                                    <li class="dropdown-item"><a class="dropdown-item" href="#">Trang Cá Nhân</a></li>
+                                    <li class="dropdown-item"><a class="dropdown-item" href="#">Bài Đăng</a></li>
+                                    <li class="dropdown-item"><a class="dropdown-item" href="#">Chỉnh Sửa</a></li>
+                                    <li class="dropdown-item"><a class="dropdown-item" href="logout" id="logout-user">Đăng Xuất</a></li>
+                                </ul>
                             </div>
+
 
                         </div>
                     </div>

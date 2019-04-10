@@ -65,6 +65,45 @@ body {font-family: 'Open Sans', Tahoma, Arial, sans-serif;}
     text-decoration: none;
     text-transform: capitalize;
 }
+/*Xu ly phan dropdown-menu Duong*/
+
+#dropdown-menu-header {
+    text-decoration: none;
+    color: black;
+}
+#dropdown-menu-header:hover {
+    text-decoration: none;
+    color:#33cc66 ;
+}
+#sub-menu-login {
+    position: absolute;
+    z-index: 1000;
+    top: 163%;
+    left: -17px;
+    min-width: 150px;
+}
+li.dropdown-item  {
+    padding: 5px;
+
+}
+li.dropdown-item:hover a{
+    background-color: #33cc66;
+    color: #FFF;
+}
+li.dropdown-item:hover {
+    background-color: #33cc66;
+    color: #FFF;
+}
+li.dropdown-item a.dropdown-item{
+    text-transform: none;
+    font-weight: 600;
+}
+
+/*====================*/
+
+/*End cua xu ly menu*/
+
+
 
 .header-top .header-top-user .user-register a:hover, .header-top .header-top-user .user-info>a:hover {
     color: #33cc66;
@@ -1315,7 +1354,6 @@ input[type="radio"] .styled:checked + label::after {
 
 
 /*End sidebar
-
 /*Start footer*/
 
 .footer {
@@ -2954,4 +2992,3 @@ Detail Css
     @media only screen and (max-width: 767px) {
       .section-heading h5 {
         font-size: 16px; } }
-

@@ -18,6 +18,8 @@ class PageController extends Controller
         $houses = House::where('type_id', $request->id)->paginate(9);
         return view('pages.category', compact('houses'));
     }
+
+    //Xu ly chuc nang dang nhap
     public function postLogin (Request $request){
         $this->validate($request,[
             'email' =>'required|email',
@@ -36,11 +38,13 @@ class PageController extends Controller
         }
     }
 
+    //Xu ly chuc nang dang xuat
     public function getLogout(){
         Auth::logout();
         return redirect()->route('trang-chu');
     }
 
+//    Xu ly chuc nang dang ky
     public function postRegister(Request $request){
         $this->validate($request,[
             'email' =>'required|email',
@@ -58,7 +62,7 @@ class PageController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = bcrypt($request->password);
         $user->full_name = $request->name;
         $user->phone_number = 0000;
         $user->save();
