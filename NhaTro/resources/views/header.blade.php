@@ -15,12 +15,7 @@
                             {{--<div class="say-hello" style="color:black;">Xin Chào</div>--}}
                             <div class="user-name" style="color:black;">
                                 {{Auth::user()->name}}
-                                {{--<ul class="hihi">--}}
-                                    {{--<li><a href="#">Thông tin</a></li>--}}
-                                    {{--<li><a href="#">Bài đăng</a></li>--}}
-                                    {{--<li><a href="#">Lịch sử</a></li>--}}
-                                    {{--<li><a href="#">Đăng xuất</a></li>--}}
-                                {{--</ul>--}}
+
                             </div>
                             <div class="dropdown mini-menu" id="mini-menu">
                                 <a href="#" id="dropdown-menu-header" class="dropdown-toggle" data-toggle="dropdown">Thông Tin Tài Khoản<span class="caret"></span></a>

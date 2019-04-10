@@ -69,6 +69,7 @@ class PageController extends Controller
 
         return redirect()->route('trang-chu')->with('thongbao',"Đăng ký tài khoản thành công");
     }
+
 }
 
 
