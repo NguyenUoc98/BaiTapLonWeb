@@ -44,3 +44,12 @@ Route::post('register',[
     'uses'=>'PageController@postRegister'
 ]);
 
+Route::get('house-detail/{id}',[
+    'as'        =>'house-detail',
+    'uses'      =>'PageController@getHouseDetail'
+]);
+
+Route::get('add-house',[
+    'as'        =>'add-house',
+    'uses'      =>'PageController@getAddHouse'
+]);
