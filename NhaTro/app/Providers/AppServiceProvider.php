@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Schema;
 use Illuminate\Support\Facades\View;
 use App\Category;
+use App\House;
 
 class AppServiceProvider extends ServiceProvider
 {

@@ -7,8 +7,7 @@
                 </div>
                 @if (Auth::check())
                     <div class="pull-right">
-                        <a class="btn btn-submit-room load_modal_login pull-left" data-toggle="modal"
-                           data-target="#modal_auth" href="javascript: void(0);">Đăng tin miễn phí</a>
+                        <a class="btn btn-submit-room pull-left" href="{{(Auth::check()) ? route('add-house') : 'javascript: void(0);'}}">Đăng tin miễn phí</a>
                         <div class="header-top-avatar"><img class="img-responsive" src="{{Voyager::image(Auth::user()->avatar)}}">
                         </div>
                         <div class="header-top-user ">
@@ -33,7 +32,7 @@
                     </div>
                 @else
                     <div class="pull-right">
-                        <a class="btn btn-submit-room load_modal_login pull-left" data-toggle="modal"
+                        <a class="btn btn-submit-room pull-left" data-toggle="modal"
                            data-target="#modal_auth" href="javascript: void(0);">Đăng tin miễn phí</a>
                         <div class="header-top-avatar"><img class="img-responsive" src="themes/client/img/avatar.png">
                         </div>

@@ -26,6 +26,10 @@ class CreateHousesTable extends Migration
             $table->string('address');
             $table->integer('price');
             $table->integer('acreage');
+            $table->integer('tang');
+            $table->integer('giadien');
+            $table->integer('gianuoc');
+            $table->text('tienich');
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

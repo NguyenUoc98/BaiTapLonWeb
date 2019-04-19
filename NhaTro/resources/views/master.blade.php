@@ -20,6 +20,8 @@
     <script src="/themes/client/js/owl.carousel.min.js.js.php"></script>
     <script src="/themes/client/js/ion.rangeSlider.js.js.php"></script>
     <script src="/themes/client/js/jquery.maskMoney.js.js.php"></script>
+    
+    
     <!-- Load WysiBB JS and Theme -->
 
     <script src="/themes/client/js/wysibb/jquery.wysibb.min.js.js.php"></script>
@@ -28,12 +30,12 @@
     var client_upload_img = 'dang-tin/upload';
     </script>
     <script src="/js/my_script.js"></script>
+
 </head>
 
 <body>
     @include('header')
     @include('header_nav')
-    @include('slide')
     @yield('content')
     @include('footer')
     <script src="/themes/client/js/app.js.js.php"></script>

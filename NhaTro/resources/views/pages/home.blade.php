@@ -1,5 +1,6 @@
 @extends('master')
 @section('content')
+@include('searchbar')
 
 <div class="container">
     <div class="row">
@@ -35,8 +36,8 @@
                                     @foreach ($houses as $house)
                                     <div class="col-sm-6 col-md-4 thumbnail-item">
                                         <div class="thumbnail">
-                                            <a href="{{route('house-detail', $house->id)}}" title="{{$house->description}}">
-                                                <img src="{{Voyager::image($house->image)}}" alt=""
+                                            <a href="{{route('house-detail', $house->id)}}" title="{{$house->title}}">
+                                                <img src="/nhatro/medium/{{str_replace('\\','/',json_decode($house->image)[0])}}" alt=""
                                                     class="cover img-reponsive">
                                             </a>
                                             <div class="room-item-price">
@@ -44,12 +45,14 @@
                                             </div>
                                             <div class="caption">
                                                 <div class="title">
-                                                    <h2><a href="{{route('house-detail', $house->id)}}">{{$house->description}}</a></h2>
+                                                    <h2><a href="{{route('house-detail', $house->id)}}">{{$house->title}}</a></h2>
                                                 </div>
-                                                <div class="extra">
+                                                <div class="extra" style="height: 60px;">
                                                     <div class="pull-left">
-                                                        <a href="#"><span
-                                                                class="fa fa-map-marker"></span>{{$house->address}}</a>
+                                                        <a href="#">
+                                                            <span class="fa fa-map-marker"></span>
+                                                            {{\App\Town::find($house->town_id)->name.', '.\App\District::find($house->district_id)->name.', '.\App\City::find($house->city_id)->name}}
+                                                        </a>
                                                     </div>
                                                     <div class="pull-right">
                                                         <a href=""><span class="fa fa-info"></span>{{$house->acreage}}

@@ -70,6 +70,16 @@ class PageController extends Controller
         return redirect()->route('trang-chu')->with('thongbao',"Đăng ký tài khoản thành công");
     }
 
+    public function getHouseDetail(Request $request){
+        $house = House::find($request->id);
+        $user = User::find($house->user_id);
+        return view('pages.house_detail', compact('house', 'user'));
+    }
+
+    public function getAddHouse(){
+        return view('pages.add_house');
+    }
+
 }
 
 
