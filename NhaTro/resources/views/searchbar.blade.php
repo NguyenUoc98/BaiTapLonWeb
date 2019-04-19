@@ -53,7 +53,7 @@
                         var district_id = $(this).val();
 
                         $.ajax({
-                            url: '/admin/ajax/get-town',
+                            url: '/admin/ajax/get-town/',
                             method: 'get',
                             data: {
                                 district_id: district_id,

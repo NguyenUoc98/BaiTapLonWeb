@@ -53,3 +53,13 @@ Route::get('add-house',[
     'as'        =>'add-house',
     'uses'      =>'PageController@getAddHouse'
 ]);
+
+Route::get('/admin/ajax/get-district',[
+    'as'        =>'/admin/ajax/get-district',
+    'uses'      =>'AjaxController@getDistrictByCity'
+]);
+
+Route::get('/admin/ajax/get-town',[
+    'as'        =>'/admin/ajax/get-town',
+    'uses'      =>'AjaxController@getTownByDistrict'
+]);

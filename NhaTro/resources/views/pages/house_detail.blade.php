@@ -9,7 +9,8 @@
                         <div class="breadcrumb">
                             <a href="{{route('trang-chu')}}">Trang chủ</a>
                             <span> / </span>
-                            <a href="{{route('category',$house->type_id)}}">{{\App\Category::find($house->type_id)->name}}</a>
+                            <a
+                                href="{{route('category',$house->type_id)}}">{{\App\Category::find($house->type_id)->name}}</a>
                             <span> / </span>
                             <span class="active">{{$house->title}}</span>
                         </div>
@@ -177,22 +178,19 @@
                                     </div>
 
                                     <!-- Bản đồ -->
-                                    <div style="overflow:hidden;width: 885px;position: relative;"><iframe width="885"
-                                            height="440"
+                                    <div class = "col-md-12">
+                                    <div style="overflow:hidden;width: 885;position: relative;">
+                                        <iframe width="885" height="440"
                                             src="https://maps.google.com/maps?width=885&amp;height=553&amp;hl=vn&amp;q={{$house->address.','.$house->district.','.$house->city.','.$house->country}}+(Title)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed"
-                                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                                        <div
-                                            style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;">
-                                            <small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by
-                                                <a href="https://embedgooglemaps.com/de/">Embedgooglemaps.com/de/</a> &
-                                                <a href="https://willoughby-pr.co.uk/">gmailbulkemail.com</a></small>
-                                        </div>
+                                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                        </iframe>
                                         <style>
                                         #gmap_canvas img {
                                             max-width: none !important;
                                             background: none !important
                                         }
                                         </style>
+                                    </div>
                                     </div><br />
                                     <!-- Kết thúc bản đồ -->
 

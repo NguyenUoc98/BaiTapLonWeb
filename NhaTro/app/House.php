@@ -11,8 +11,8 @@ class House extends Model
 
     public function formFields(){
         
-        return $this->field('image', 3)
-        ->field('title',8)
+        return $this->field('image', 12)
+        ->field('title',12)
         ->field('house_belongsto_user_relationship',2)->field('house_belongsto_category_relationship',2)->field('status',2)
         ->field('address',8)
         ->subViewField('houses.sub-views.select-address', ['grid' => 2])->field('acreage',2)
