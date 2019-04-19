@@ -35,7 +35,7 @@
                                     @foreach ($houses as $house)
                                     <div class="col-sm-6 col-md-4 thumbnail-item">
                                         <div class="thumbnail">
-                                            <a href="#" title="{{$house->description}}">
+                                            <a href="{{route('house-detail', $house->id)}}" title="{{$house->description}}">
                                                 <img src="{{Voyager::image($house->image)}}" alt=""
                                                     class="cover img-reponsive">
                                             </a>
@@ -44,7 +44,7 @@
                                             </div>
                                             <div class="caption">
                                                 <div class="title">
-                                                    <h2><a href="#">{{$house->description}}</a></h2>
+                                                    <h2><a href="{{route('house-detail', $house->id)}}">{{$house->description}}</a></h2>
                                                 </div>
                                                 <div class="extra">
                                                     <div class="pull-left">
