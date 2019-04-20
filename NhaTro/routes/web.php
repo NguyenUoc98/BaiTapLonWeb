@@ -63,3 +63,21 @@ Route::get('/admin/ajax/get-town',[
     'as'        =>'/admin/ajax/get-town',
     'uses'      =>'AjaxController@getTownByDistrict'
 ]);
+//route cho dang nhap va dang ky rieng
+Route::get('dang-nhap','PageController@getDangNhap');
+Route::post('dang-nhap',[
+    'as'=>'dang-nhap',
+    'uses'=>'PageController@postLogin'
+]);
+Route::get('dang-ky','PageController@getDangKy');
+Route::post('dang-ky',[
+    'as'=>'dang-ky',
+    'uses'=>'PageController@postRegister'
+]);
+//route cho thong tin ca nhan
+Route::get('infor','PageController@getInfor');
+
+Route::post('infor',[
+    'as'=>'infor',
+    'uses'=>'PageController@updateUser'
+]);

@@ -95,6 +95,10 @@
       <path value="$PROJECT_DIR$/NhaTro/vendor/fideloper/proxy" />
       <path value="$PROJECT_DIR$/NhaTro/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/jeremeamia/SuperClosure" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/intervention/imagecache" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/NhaTro/vendor/symfony/polyfill-php56" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

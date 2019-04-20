@@ -79,7 +79,29 @@ class PageController extends Controller
     public function getAddHouse(){
         return view('pages.add_house');
     }
+    //Dang nhap va dang ky rieng
+    public function getDangNhap(){
+        return view('pages.login');
+    }
+    public function getDangKy(){
+        return view('pages.register');
+    }
+    // phan thong tin ca nhan
+    public function getInfor(){
+        return view('pages.infor');
+    }
+    public function updateUser (Request $request) {
+        $user = User::find(Auth::user()->id);
+        $user ->update([
+            'full_name' => $request->full_name,
+            'name' => $request->name,
+            'phone_number' => $request->phone_number,
+            'CMND' => $request->CMND,
+            'avatar' => $request->avatar
 
+        ]);
+        return redirect()->route('infor')->with('message',"Cập nhật tài khoản thành công");
+    }
 }
 
 
