@@ -6,7 +6,11 @@ use App\User;
 use Illuminate\Http\Request;
 use App\House;
 use Illuminate\Support\Facades\Auth;
+// <<<<<<< HEAD
+use Illuminate\Support\Facades\DB;
+
 use App\Comment;
+// >>>>>>> 8f4c7542d6e2a26e040e2021b799916ca0920247
 
 class PageController extends Controller
 {
@@ -114,6 +118,15 @@ class PageController extends Controller
 
         ]);
         return redirect()->route('infor')->with('message',"Cập nhật tài khoản thành công");
+    }
+
+    public function postTimKiem(Request $request){
+        //dd($request->all());
+        $giadau = 1000000*$request->price_from;
+        $giacuoi = 1000000*$request->price_to;
+        $sql = 'city_id='.$request->city_id.' and type_id='.$request->type.' and price between '.$giadau.' and '.$giacuoi;
+        $houses = House::whereRaw($sql)->paginate(9);
+        return view('pages.tim_kiem', compact('houses'));
     }
 }
 

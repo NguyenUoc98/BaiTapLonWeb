@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 
 
 /*
@@ -90,10 +91,24 @@ Route::post('infor',[
     'uses'=>'PageController@updateUser'
 ]);
 
+<<<<<<< HEAD
+=======
+//route cho comment
+// <<<<<<< HEAD
+Route::post('comment/id', 'CommentController@postComment');
+
+//route cho tim kiem
+Route::post('timkiem',[
+    'as'    =>'timkiem',
+    'uses'   =>'PageController@postTimKiem'
+]);
+
+Route::post('comment/{id}', 'CommentController@postComment');
+>>>>>>> refs/remotes/origin/master
 
 Route::get('getComment',[
     'as'    =>'getComment',
     'use'   =>'CommentController@getComment'
 ]);
 
-//route cho house
+
