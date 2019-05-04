@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -89,8 +90,6 @@ Route::post('infor',[
     'uses'=>'PageController@updateUser'
 ]);
 
-//route cho comment
-Route::post('comment/{id}', 'CommentController@postComment');
 
 Route::get('getComment',[
     'as'    =>'getComment',

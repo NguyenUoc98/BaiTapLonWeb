@@ -20,14 +20,14 @@
     <script src="/themes/client/js/owl.carousel.min.js.js.php"></script>
     <script src="/themes/client/js/ion.rangeSlider.js.js.php"></script>
     <script src="/themes/client/js/jquery.maskMoney.js.js.php"></script>
-    
-    
+
+
     <!-- Load WysiBB JS and Theme -->
 
     <script src="/themes/client/js/wysibb/jquery.wysibb.min.js.js.php"></script>
     <link rel="stylesheet" href="/themes/client/js/wysibb/theme/default/wbbtheme.css" />
     <script type="text/javascript">
-    var client_upload_img = 'dang-tin/upload';
+        var client_upload_img = 'dang-tin/upload';
     </script>
     <script src="/js/my_script.js"></script>
 
@@ -44,6 +44,23 @@
     @include('footer')
     <script src="/themes/client/js/app.js.js.php"></script>
     <script src="/js/script1.js"></script>
+    <!-- Tich hop cua so chat -->
+    <script>
+        (function(s, u, b, i, z) {
+            u[i] = u[i] || function() {
+                u[i].t = +new Date();
+                (u[i].q = u[i].q || []).push(arguments);
+            };
+            z = s.createElement('script');
+            var zz = s.getElementsByTagName('script')[0];
+            z.async = 1;
+            z.src = b;
+            z.id = 'subiz-script';
+            zz.parentNode.insertBefore(z, zz);
+        })(document, window, 'https://widgetv4.subiz.com/static/js/app.js', 'subiz');
+        subiz('setAccount', 'acqiivveqsblclewuomd');
+    </script>
+    <!---->
 </body>
 
 </html>
