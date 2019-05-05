@@ -218,7 +218,8 @@
                             <hr>
                         </div>
 
-                        <form class="form" id="search_form" action="tim-kiem" method="GET">
+                        <form class="form" id="search_form" action="{{route('timkiem')}}" method="POST">
+                        {!! csrf_field() !!}
                             <?php
                             $cities = \App\City::all();
                             ?>
@@ -231,94 +232,37 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <!-- Chọn quận huyện -->
-                            <div class="form-group">
-                                <select class="form-control btn-select-light" name="district_id">
-                                    <option>---- Quận/Huyện ----</option>
-                                </select>
-                            </div>
-                            <!-- Chọn xã phường thị trấn -->
-                            <div class="form-group">
-                                <select class="form-control btn-select-light" name="town_id">
-                                    <option>---- Xã/Phường/Thị Trấn ----</option>
-                                </select>
-                            </div>
-                            <!-- Script lấy đơn vị hành chính -->
-                            <script>
-                                $("select[name='city_id']").change(function() {
-                                    var city_id = $(this).val();
-
-                                    $.ajax({
-                                        url: '/admin/ajax/get-district',
-                                        method: 'get',
-                                        data: {
-                                            city_id: city_id,
-                                        },
-                                        success: function(data) {
-                                            $("select[name='district_id'").html('');
-                                            $.each(data, function(key, value) {
-                                                $("select[name='district_id']").append(
-                                                    "<option value=" + value.id + ">" +
-                                                    value.name +
-                                                    "</option>"
-                                                );
-                                            });
-                                        }
-                                    });
-                                });
-
-                                $("select[name='district_id']").change(function() {
-                                    var district_id = $(this).val();
-
-                                    $.ajax({
-                                        url: '/admin/ajax/get-town',
-                                        method: 'get',
-                                        data: {
-                                            district_id: district_id,
-                                        },
-                                        success: function(data) {
-                                            $("select[name='town_id'").html('');
-                                            $.each(data, function(key, value) {
-                                                $("select[name='town_id']").append(
-                                                    "<option value=" + value.id + ">" +
-                                                    value.name +
-                                                    "</option>"
-                                                );
-                                            });
-                                        }
-                                    });
-                                });
-                            </script>
+                            
 
                             <div class="form-group">
-                                <select class="form-control btn-select-light" name="type" multiple="multiple">
+                                <select class="form-control btn-select-light" name="type" >
                                     @foreach($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <script>
+                            <!-- <script>
                                 $("select[name='type']").multipleSelect({
                                     width: '100%',
                                     multipleWidth: 132,
                                     selectAll: false,
                                     placeholder: "Chọn Loại Phòng",
                                 });
-                            </script>
+                            </script> -->
 
                             <div class="form-group price">
                                 <div class="price-title">Chọn khoảng giá</div>
                                 <div class="input-group">
-                                    <input name="price_from" type="text" maxlength="4" value="0" class="inp js-from form-control" />
+                                    <input name="price_from" type="text" maxlength="4" value="0"  class="inp" />
                                     <span class="input-group-addon">Triệu</span>
                                 </div>
 
                                 <span class="input-price-title">Đến</span>
 
                                 <div class="input-group">
-                                    <input name="price_from" type="text" maxlength="4" value="0" class="inp js-from form-control" />
+                                    <input name="price_to" type="text" maxlength="4" value="0" class="inp" />
                                     <span class="input-group-addon">Triệu</span>
-                                </div>
+                                </div>  
 
                             </div>
 
