@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,3 +86,9 @@ Route::post('infor',[
 
 //route cho comment
 Route::post('comment/id', 'CommentController@postComment');
+
+//route cho tim kiem
+Route::post('timkiem',[
+    'as'    =>'timkiem',
+    'uses'   =>'PageController@postTimKiem'
+]);
