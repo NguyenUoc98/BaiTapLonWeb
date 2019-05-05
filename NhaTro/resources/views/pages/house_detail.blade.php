@@ -149,13 +149,16 @@
                                         <hr>
                                     </div>
                                     <div class="dis-content">{!!$house->description!!}</div>
+                                    
+                                    
                                 </div>
                             </div>
+                            
                         </div>
 
 
                         <!--Comment-->
-                        <hr>
+                        <!-- <hr>
                         <div class="room-detail-des">
                             <div class="row">
                                 <div class="col-md-12">
@@ -167,14 +170,14 @@
                                             </a>
                                         </div>
                                         <div class="clearfix"></div>
-                                        <div class="fb-comments" data-href="http://localhost:8000/house-detail/{{$house->id}}" data-width="" data-numposts="5"></div>
+                                        <div class="fb-comments" data-href="http://localhost:8000/house-detail/{{$house->id}}" data-width="700px" data-numposts="5"></div>
                                         </div>
                                         <hr>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <hr>
+                        <hr> -->
                         <!----------->
 
                         <div class="room-detail-map">

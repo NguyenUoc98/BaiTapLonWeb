@@ -81,17 +81,7 @@ class PageController extends Controller
         $comments   = Comment::all();
         return view('pages.house_detail', compact('house', 'user', 'comments'));
     }
-    // Comment
-    public function postComment(Request $request){
-        $commnet = new Comment();
-        $user->id = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->full_name = $request->name;
-        $comment->content = $request->content;
-        $comment->save();
-        return view('pages.house_detail/{{id}}', compact('comments'));
-    }
+    
 
     public function getAddHouse(){
         return view('pages.add_house');
