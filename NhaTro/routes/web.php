@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,3 +82,6 @@ Route::post('infor',[
     'as'=>'infor',
     'uses'=>'PageController@updateUser'
 ]);
+
+//route cho comment
+Route::post('comment/id', 'CommentController@postComment');
