@@ -1,9 +1,12 @@
 @extends('master')
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-9">
             <div class="row">
+
+
                 <div class="col-md-12 room-main-content">
                     <div class="pt-breadcrumb" style="margin-top: 32px;">
                         <div class="breadcrumb">
@@ -150,23 +153,29 @@
                             </div>
                         </div>
 
-                        <!--Comment-->
 
-                        @if(Auth::check())
+                        <!--Comment-->
                         <hr>
                         <div class="room-detail-des">
-                            <h3><span>Bình luận <i class="fa fa-angle-right"></i></span></h3>
-                            <form action="comment/{{$house->id}}" method="post" role="form">
-                                <input type="hidden" name="_token" value="{{csrf_token()}}" />
-                                <div>
-                                    <textarea name="content" rows="4">Hãy để lại bình luận của bạn tại đây...</textarea>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="des-label room-list-category">
+                                        <div class="pull-left">
+                                            <a href="javascript: void(0);">
+                                                <h3><span>Bình luận <i class="fa fa-angle-right"></i></span>
+                                                </h3>
+                                            </a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="fb-comments" data-href="http://localhost:8000/house-detail/{{$house->id}}" data-width="" data-numposts="5"></div>
+                                        </div>
+                                        <hr>
+                                    </div>
                                 </div>
-                                <button type="submit">Gửi bình luận</button>
-                            </form>
+                            </div>
                         </div>
-
                         <hr>
-                        @endif
+                        <!----------->
 
                         <div class="room-detail-map">
                             <div class="row">

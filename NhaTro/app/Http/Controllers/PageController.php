@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\House;
 use Illuminate\Support\Facades\Auth;
+use App\Comment;
 
 class PageController extends Controller
 {
@@ -71,9 +72,21 @@ class PageController extends Controller
     }
 
     public function getHouseDetail(Request $request){
-        $house = House::find($request->id);
-        $user = User::find($house->user_id);
-        return view('pages.house_detail', compact('house', 'user'));
+        $house      = House::find($request->id);
+        $user       = User::find($house->user_id);
+        $comments   = Comment::all();
+        return view('pages.house_detail', compact('house', 'user', 'comments'));
+    }
+    // Comment
+    public function postComment(Request $request){
+        $commnet = new Comment();
+        $user->id = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->full_name = $request->name;
+        $comment->content = $request->content;
+        $comment->save();
+        return view('pages.house_detail/{{id}}', compact('comments'));
     }
 
     public function getAddHouse(){

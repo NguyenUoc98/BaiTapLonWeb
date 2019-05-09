@@ -75,6 +75,12 @@ Route::post('dang-ky',[
     'as'=>'dang-ky',
     'uses'=>'PageController@postRegister'
 ]);
+
+//route comment
+Route::post('house-detail\{{id}}',[
+    'as'=>'house-detail\{{id}}',
+    'uses'=>'PageController@postComment'
+]);
 //route cho thong tin ca nhan
 Route::get('infor','PageController@getInfor');
 
@@ -84,4 +90,11 @@ Route::post('infor',[
 ]);
 
 //route cho comment
-Route::post('comment/id', 'CommentController@postComment');
+Route::post('comment/{id}', 'CommentController@postComment');
+
+Route::get('getComment',[
+    'as'    =>'getComment',
+    'use'   =>'CommentController@getComment'
+]);
+
+//route cho house
