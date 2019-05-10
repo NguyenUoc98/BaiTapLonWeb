@@ -18,59 +18,16 @@
                             @endforeach
                         </select>
                     </div>
-                    <!-- Chọn quận huyện -->
+
+                    <!-- Chọn quận huyện
                     <div class="form-group">
                         <select class="form-control btn-select-light" name="district_id">
                             <option>---- Quận/Huyện ----</option>
                         </select>
-                    </div>
+                    </div> -->
 
                     <!-- Script lấy đơn vị hành chính -->
-                    <script>
-                    $("select[name='city_id']").change(function() {
-                        var city_id = $(this).val();
-
-                        $.ajax({
-                            url: '/admin/ajax/get-district',
-                            method: 'get',
-                            data: {
-                                city_id: city_id,
-                            },
-                            success: function(data) {
-                                $("select[name='district_id'").html('');
-                                $.each(data, function(key, value) {
-                                    $("select[name='district_id']").append(
-                                        "<option value=" + value.id + ">" +
-                                        value.name +
-                                        "</option>"
-                                    );
-                                });
-                            }
-                        });
-                    });
-
-                    $("select[name='district_id']").change(function() {
-                        var district_id = $(this).val();
-
-                        $.ajax({
-                            url: '/admin/ajax/get-town/',
-                            method: 'get',
-                            data: {
-                                district_id: district_id,
-                            },
-                            success: function(data) {
-                                $("select[name='town_id'").html('');
-                                $.each(data, function(key, value) {
-                                    $("select[name='town_id']").append(
-                                        "<option value=" + value.id + ">" +
-                                        value.name +
-                                        "</option>"
-                                    );
-                                });
-                            }
-                        });
-                    });
-                    </script>
+                    
 
                 </div>
 
