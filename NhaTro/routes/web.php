@@ -91,8 +91,6 @@ Route::post('infor',[
     'uses'=>'PageController@updateUser'
 ]);
 
-<<<<<<< HEAD
-=======
 //route cho comment
 // <<<<<<< HEAD
 Route::post('comment/id', 'CommentController@postComment');
@@ -104,7 +102,6 @@ Route::post('timkiem',[
 ]);
 
 Route::post('comment/{id}', 'CommentController@postComment');
->>>>>>> refs/remotes/origin/master
 
 Route::get('getComment',[
     'as'    =>'getComment',
