@@ -23,23 +23,10 @@
                                 <h1>{{$house->title}}</h1>
                             </a>
                         </div>
-                        <div class="social">
-                            <div class="pull-left facebook">
-                                <span>
-                                    <div class="fb-like" data-href="phong-tro-nha-tro/cho-thue-phong-tro-duong-vo-van-kiet" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
-                                </span>
-                                <span>
-                                    <div class="fb-send" data-href="phong-tro-nha-tro/cho-thue-phong-tro-duong-vo-van-kiet"></div>
-                                </span>
-                            </div>
-                            <div class="pull-left gplus">
-                                <span>
-                                    <div class="g-plusone" data-size="medium" data-href="phong-tro-nha-tro/cho-thue-phong-tro-duong-vo-van-kiet"></div>
-                                </span>
-                            </div>
-                            <div class="pull-right">
-                                <a href="javascript:void();"><span>Lượt xem : </span>19</a>
-                            </div>
+                        <div>
+                            <div class="fb-like" data-href="http://localhost:8000/house-detail/{{$house->id}}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+                            <div class="fb-share-button" data-href="http://localhost:8000/house-detail/{{$house->id}};" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8000%2Fhouse-detail%2F%257B%257Bid%257D%257D&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
                         </div>
                         <div class="clearfix"></div>
 
@@ -149,13 +136,17 @@
                                         <hr>
                                     </div>
                                     <div class="dis-content">{!!$house->description!!}</div>
+                                    
+                                    
                                 </div>
                             </div>
+                            
                         </div>
 
 
+<<<<<<< HEAD
                         <!--Comment-->
-                        <hr>
+                        <!-- <hr>
                         <div class="room-detail-des">
                             <div class="row">
                                 <div class="col-md-12">
@@ -167,15 +158,18 @@
                                             </a>
                                         </div>
                                         <div class="clearfix"></div>
-                                        <div class="fb-comments" data-href="http://localhost:8000/house-detail/{{$house->id}}" data-width="" data-numposts="5"></div>
+                                        <div class="fb-comments" data-href="http://localhost:8000/house-detail/{{$house->id}}" data-width="700px" data-numposts="5"></div>
                                         </div>
                                         <hr>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <hr>
+                        <hr> -->
                         <!----------->
+=======
+
+>>>>>>> refs/remotes/origin/master
 
                         <div class="room-detail-map">
                             <div class="row">
@@ -228,7 +222,7 @@
                         </div>
 
                         <form class="form" id="search_form" action="{{route('timkiem')}}" method="POST">
-                        {!! csrf_field() !!}
+                            {!! csrf_field() !!}
                             <?php
                             $cities = \App\City::all();
                             ?>
@@ -241,10 +235,10 @@
                                     @endforeach
                                 </select>
                             </div>
-                            
+
 
                             <div class="form-group">
-                                <select class="form-control btn-select-light" name="type" >
+                                <select class="form-control btn-select-light" name="type">
                                     @foreach($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
@@ -262,7 +256,7 @@
                             <div class="form-group price">
                                 <div class="price-title">Chọn khoảng giá</div>
                                 <div class="input-group">
-                                    <input name="price_from" type="text" maxlength="4" value="0"  class="inp" />
+                                    <input name="price_from" type="text" maxlength="4" value="0" class="inp" />
                                     <span class="input-group-addon">Triệu</span>
                                 </div>
 
@@ -271,7 +265,7 @@
                                 <div class="input-group">
                                     <input name="price_to" type="text" maxlength="4" value="0" class="inp" />
                                     <span class="input-group-addon">Triệu</span>
-                                </div>  
+                                </div>
 
                             </div>
 
@@ -291,6 +285,15 @@
                     <img class="img-responsive" src="themes/client/img/ads1.png" alt="">
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-12 sidebar-ads">
+                    <div class="fb-page" data-href="https://www.facebook.com/PhongTotvn-684633248621395/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/PhongTotvn-684633248621395/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/PhongTotvn-684633248621395/">PhongTot.vn</a></blockquote>
+                    </div>
+                </div>
+            </div>
+
             <!-- Bài viết -->
             <div class="row">
                 <div class="col-sm-6 col-md-12 sidebar-social">
@@ -417,5 +420,39 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-12 room-main-content">
+                    <div class="pt-breadcrumb" style="margin-top: 32px;">
+                        <!--Comment-->
+                        <hr>
+                        <div class="room-detail-des">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="des-label room-list-category">
+                                        <div class="pull-left">
+                                            <a href="javascript: void(0);">
+                                                <h3><span>Bình luận <i class="fa fa-angle-right"></i></span>
+                                                </h3>
+                                            </a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="fb-comments" data-href="http://localhost:8000/house-detail/{{$house->id}}" data-width="" data-numposts="5"></div>
 
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!----------->
 @endsection
