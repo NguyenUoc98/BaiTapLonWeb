@@ -10,7 +10,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use App\Comment;
+<<<<<<< HEAD
 
+=======
+use TCG\Voyager\Models\Post;
+
+// >>>>>>> 8f4c7542d6e2a26e040e2021b799916ca0920247
+>>>>>>> refs/remotes/origin/master
 
 class PageController extends Controller
 {
@@ -81,17 +87,7 @@ class PageController extends Controller
         $comments   = Comment::all();
         return view('pages.house_detail', compact('house', 'user', 'comments'));
     }
-    // Comment
-    public function postComment(Request $request){
-        $commnet = new Comment();
-        $user->id = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->full_name = $request->name;
-        $comment->content = $request->content;
-        $comment->save();
-        return view('pages.house_detail/{{id}}', compact('comments'));
-    }
+    
 
     public function getAddHouse(){
         return view('pages.add_house');
@@ -127,6 +123,13 @@ class PageController extends Controller
         $sql = 'city_id='.$request->city_id.' and type_id='.$request->type.' and price between '.$giadau.' and '.$giacuoi;
         $houses = House::whereRaw($sql)->paginate(9);
         return view('pages.tim_kiem', compact('houses'));
+    }
+
+
+    //Phan get chi tiet bai viet
+    public function getPostDetail(Request $request){
+        $post      = Post::find($request->id);
+        return view('pages.post_detail', compact('post'));
     }
 }
 
