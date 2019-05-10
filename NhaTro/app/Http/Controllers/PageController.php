@@ -6,17 +6,20 @@ use App\User;
 use Illuminate\Http\Request;
 use App\House;
 use Illuminate\Support\Facades\Auth;
-<<<<<<< HEAD
+// <<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
-=======
+
 use App\Comment;
->>>>>>> 8f4c7542d6e2a26e040e2021b799916ca0920247
+use App\Post;
+
+// >>>>>>> 8f4c7542d6e2a26e040e2021b799916ca0920247
 
 class PageController extends Controller
 {
     public function getIndex(){
         $houses = House::orderBy('created_at','desc')->paginate(9);
-        return view('pages.home', compact('houses'));
+        $posts  = Post::orderBy('created_at','desc')->paginate(5);
+        return view('pages.home', compact('houses','posts'));
     }
 
     public function getCategory(Request $request){
@@ -81,6 +84,13 @@ class PageController extends Controller
         $comments   = Comment::all();
         return view('pages.house_detail', compact('house', 'user', 'comments'));
     }
+
+    // Tin tuc
+    public function getTinTucDetail(Request $request){
+        $post      = Post::find($request->id);
+        return view('pages.tintuc_detail', compact('post'));
+    }
+
     // Comment
     public function postComment(Request $request){
         $commnet = new Comment();
