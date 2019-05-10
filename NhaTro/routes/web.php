@@ -82,6 +82,11 @@ Route::post('infor',[
     'as'=>'infor',
     'uses'=>'PageController@updateUser'
 ]);
+// route thay doi mat khau nguoi dung
+Route::post('changepass',[
+    'as'=>'changepass',
+    'uses'=>'PageController@changePassword'
+]);
 
 //route cho comment
 Route::post('comment/id', 'CommentController@postComment');

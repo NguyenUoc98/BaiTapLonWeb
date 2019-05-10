@@ -75,17 +75,6 @@
                                                                    placeholder="" id="full_name">
                                                             <span class="help-block" style="color:red;"></span>
                                                         </div>
-                                                        {{--<div class="form-group">--}}
-                                                            {{--<label for="ngaysinh">Giới tính</label>--}}
-                                                            {{--<label class="radio-inline">--}}
-                                                                {{--<input type="radio" name="gender" id="inlineRadio1"--}}
-                                                                       {{--value="male"> Nam--}}
-                                                            {{--</label>--}}
-                                                            {{--<label class="radio-inline">--}}
-                                                                {{--<input type="radio" name="gender" id="inlineRadio2"--}}
-                                                                       {{--value="female"> Nữ--}}
-                                                            {{--</label>--}}
-                                                        {{--</div>--}}
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -108,12 +97,22 @@
                                             </form>
                                         </div>
                                         <div role="tabpanel" class="tab-pane " id="profile">
-                                            <form class="user-panel-main-container-info" method="POST"
-                                                  action="http://phongtot.vn/trang-ca-nhan/thay-mat-khau"
+                                            @if (session('error'))
+                                                <div class="alert alert-danger" style="margin: 0;">
+                                                    {{session('error')}}
+                                                </div>
+                                            @endif
+                                            @if (session('success'))
+                                                <div class="alert alert-success" style="margin: 0;">
+                                                    {{session('success')}}
+                                                </div>
+                                            @endif
+                                            <form id="change-pass" class="user-panel-main-container-info" method="POST"
                                                   enctype="multipart/form-data">
-                                                <input type="hidden" name="_token"
-                                                       value="wVCsdjEuTsiBmm3ZGqfx9ruPu2S74t15XMpFc267">
+                                                    {!! csrf_field() !!}
+
                                                 <div class="form-group">
+
                                                     <label for="exampleInputEmail1">Mật khẩu cũ</label>
                                                     <input type="password" class="form-control" name="oldpassword"
                                                            placeholder="Mật khẩu cũ">
@@ -131,8 +130,33 @@
                                                            placeholder="Nhập lại mật khẩu">
                                                     <span class="help-block" style="color:red;"></span>
                                                 </div>
-                                                <button type="submit" class="btn">Submit</button>
+                                                <button type="submit" id="submit" class="btn">Submit</button>
                                             </form>
+                                                <script type="text/javascript">
+                                                    $(document).ready(function(){
+                                                        $('#change-pass').on('submit',function(event) {
+                                                            event.preventDefault();
+                                                            var formData = $(this).serialize();
+                                                            // process the form
+                                                            $.ajax({
+                                                                type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                                                                url         : "{{route('changepass')}}", // the url where we want to POST
+                                                                data        : formData, // our data object
+                                                                dataType    : "json",
+                                                                success:function(data){
+                                                                    console.log("success");
+                                                                    alert(data.success);
+
+                                                                },
+                                                                error:function(){
+                                                                    console.log("error");
+                                                                    alert(data.error);
+                                                                }
+
+                                                            });
+                                                        });
+                                                    });
+                                                </script>
                                         </div>
                                     </div>
                                 </div>

@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\House;
 use Illuminate\Support\Facades\Auth;
+use Hash;
 
 class PageController extends Controller
 {
@@ -102,6 +103,36 @@ class PageController extends Controller
         ]);
         return redirect()->route('infor')->with('message',"Cập nhật tài khoản thành công");
     }
+    // thay mat khau ngươi dung
+
+    public function changePassword(Request $request) {
+//        dd($request);
+        if (!(Hash::check($request->currentpass,Auth::user()->password)))
+        {
+            //neu mat khau nhap vao khong dung voi mat khau hien tai
+            return redirect()->back()->with("error","Mật khẩu bạn nhập không đúng");
+        }
+        if(strcmp($request->currentpassword, $request->newpass) == 0){
+            //Mat khau moi trung voi mat khau cu
+            return redirect()->back()->with("error","Mật khẩu mới của bạn không thể trùng với mật khẩu cũ.");
+        }
+        if(strcmp($request->newpassword, $request->checknewpass) != 0){
+            //Mat khau moi trung voi mat khau cu
+            return redirect()->back()->with("error","Mật khẩu mới và nhập lại mật khẩu phải giống nhau.");
+        }
+        $validatedData = $request->validate([
+            'currentpass' => 'required',
+            'newpass' => 'required|string|min:6|confirmed',
+        ]);
+        //Cap nhat mat khau moi
+        $user = Auth::user();
+        $user->password = bcrypt($request->new-password);
+        $user->save();
+        return redirect()->back()->with("success","Mật khẩu được đổi thành công !");
+
+
+    }
+
 }
 
 
