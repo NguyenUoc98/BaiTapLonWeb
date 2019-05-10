@@ -109,3 +109,10 @@ Route::get('getComment',[
 ]);
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('auth/facebook', 'FacebookAuthController@redirectToProvider')->name('facebook.login') ;
+Route::get('auth/facebook/callback', 'FacebookAuthController@handleProviderCallback');

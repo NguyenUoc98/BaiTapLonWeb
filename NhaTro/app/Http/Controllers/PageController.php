@@ -6,11 +6,11 @@ use App\User;
 use Illuminate\Http\Request;
 use App\House;
 use Illuminate\Support\Facades\Auth;
-// <<<<<<< HEAD
+
 use Illuminate\Support\Facades\DB;
 
 use App\Comment;
-// >>>>>>> 8f4c7542d6e2a26e040e2021b799916ca0920247
+
 
 class PageController extends Controller
 {
