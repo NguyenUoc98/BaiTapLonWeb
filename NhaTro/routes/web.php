@@ -109,3 +109,8 @@ Route::get('getComment',[
 ]);
 
 
+Route::get('post-detail/{id}',[
+    'as'        =>'post-detail',
+    'uses'      =>'PageController@getPostDetail'
+]);
+

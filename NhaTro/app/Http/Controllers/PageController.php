@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use App\Comment;
+use TCG\Voyager\Models\Post;
+
 // >>>>>>> 8f4c7542d6e2a26e040e2021b799916ca0920247
 
 class PageController extends Controller
@@ -117,6 +119,13 @@ class PageController extends Controller
         $sql = 'city_id='.$request->city_id.' and type_id='.$request->type.' and price between '.$giadau.' and '.$giacuoi;
         $houses = House::whereRaw($sql)->paginate(9);
         return view('pages.tim_kiem', compact('houses'));
+    }
+
+
+    //Phan get chi tiet bai viet
+    public function getPostDetail(Request $request){
+        $post      = Post::find($request->id);
+        return view('pages.post_detail', compact('post'));
     }
 }
 

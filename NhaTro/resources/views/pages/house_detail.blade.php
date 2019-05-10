@@ -142,35 +142,6 @@
                             </div>
                             
                         </div>
-
-
-<<<<<<< HEAD
-                        <!--Comment-->
-                        <!-- <hr>
-                        <div class="room-detail-des">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="des-label room-list-category">
-                                        <div class="pull-left">
-                                            <a href="javascript: void(0);">
-                                                <h3><span>Bình luận <i class="fa fa-angle-right"></i></span>
-                                                </h3>
-                                            </a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <div class="fb-comments" data-href="http://localhost:8000/house-detail/{{$house->id}}" data-width="700px" data-numposts="5"></div>
-                                        </div>
-                                        <hr>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr> -->
-                        <!----------->
-=======
-
->>>>>>> refs/remotes/origin/master
-
                         <div class="room-detail-map">
                             <div class="row">
                                 <div class="col-md-12">
@@ -330,92 +301,26 @@
                     <div class="clearfix"></div>
                     <hr />
                 </div>
+                
+                <?php
+                $posts = \App\Post::all();
+                ?>
+                @foreach($posts as $p)
                 <div class="col-sm-6 col-md-12 sidebar-article-new">
-                    <a href="bai-viet">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <img class="img-responsive" src="xc5tx4cj/ngoi-nha-46m&sup2;-tuyet-dep-co-chi-phi-hoan-thien-480-trieu-dong-chang-trai-8x-xay-tang-vo_cover-573eddf84424b.jpg" alt="">
-                            </div>
-                            <div class="col-md-7 no-padding-left">
-                                <div class="sidebar-article-title">
-                                    <h2>Ng&ocirc;i nh&agrave; 46m&sup2; tuyệt đẹp c&oacute; chi ph&iacute;
-                                        ho&agrave;n thiện 480 triệu đồng ch&agrave;ng trai 8x x&acirc;y tặng vợ</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-12 sidebar-article-new">
-                    <a href="bai-viet">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <img class="img-responsive" src="xc5tx4cj/y-tuong-kinh-doanh-nha-tro-ngoi-khong-moi-thang-kiem-tram-trieu_cover-573dcbc3ac6e2.jpg" alt="">
-                            </div>
-                            <div class="col-md-7 no-padding-left">
-                                <div class="sidebar-article-title">
-                                    <h2>&Yacute; tưởng kinh doanh nh&agrave; trọ, ngồi kh&ocirc;ng mỗi th&aacute;ng
-                                        kiếm trăm triệu?</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-12 sidebar-article-new">
-                    <a href="bai-viet">
+                    <a href="{{route('post-detail', $p->id)}}">
                         <div class="row">
                             <div class="col-md-5">
                                 <img class="img-responsive" src="xc5tx4cj/nhung-dieu-can-biet-khi-tim-phong-tro_cover-5714ad734268d.jpg" alt="">
                             </div>
                             <div class="col-md-7 no-padding-left">
                                 <div class="sidebar-article-title">
-                                    <h2>Những điều cần biết khi t&igrave;m ph&ograve;ng trọ</h2>
+                                    <h2>{{$p->title}}</h2>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-6 col-md-12 sidebar-article-new">
-                    <a href="bai-viet">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <img class="img-responsive" src="xc5tx4cj/thiet-ke-can-ho-‪‬173m2-cuc-dep-voi-chi-phi-chi-17-trieu-dong_cover-57018c103e17a.jpg" alt="">
-                            </div>
-                            <div class="col-md-7 no-padding-left">
-                                <div class="sidebar-article-title">
-                                    <h2>Thiết kế căn hộ ‪‬173m2 cực đẹp với chi ph&iacute; chỉ 17 triệu đồng</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-12 sidebar-article-new">
-                    <a href="bai-viet">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <img class="img-responsive" src="xc5tx4cj/pham-huong-mac-gian-di-giao-luu-cung-sinh-vien_cover-57018a97e544c.jpg" alt="">
-                            </div>
-                            <div class="col-md-7 no-padding-left">
-                                <div class="sidebar-article-title">
-                                    <h2>Phạm Hương mặc giản dị giao lưu c&ugrave;ng sinh vi&ecirc;n</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-12 sidebar-article-new">
-                    <a href="bai-viet">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <img class="img-responsive" src="xc5tx4cj/vi-sao-chon-nganh-hot-van-that-nghiep_cover-57017e8c0162e.jpg" alt="">
-                            </div>
-                            <div class="col-md-7 no-padding-left">
-                                <div class="sidebar-article-title">
-                                    <h2>V&igrave; sao chọn ng&agrave;nh &#039;hot&#039; vẫn thất nghiệp?</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -454,5 +359,4 @@
         </div>
     </div>
 </div>
-<!----------->
 @endsection
