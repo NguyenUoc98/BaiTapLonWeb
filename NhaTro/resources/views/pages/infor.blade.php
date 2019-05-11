@@ -109,52 +109,59 @@
                                             @endif
                                             <form id="change-pass" class="user-panel-main-container-info" method="POST"
                                                   enctype="multipart/form-data">
-                                                    {!! csrf_field() !!}
+
 
                                                 <div class="form-group">
-
                                                     <label for="exampleInputEmail1">Mật khẩu cũ</label>
-                                                    <input type="password" class="form-control" name="oldpassword"
-                                                           placeholder="Mật khẩu cũ">
+                                                    <input type="password" class="form-control" name="currentpassword"
+                                                           placeholder="Mật khẩu cũ" id="currentpassword">
                                                     <span class="help-block" style="color:red;"></span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Mật khẩu mới</label>
-                                                    <input type="password" class="form-control" name="password"
-                                                           placeholder="Mật khẩu mới">
+                                                    <input type="password" class="form-control" name="newpass"
+                                                           placeholder="Mật khẩu mới" id="newpass">
                                                     <span class="help-block" style="color:red;"></span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Nhập lại mật khẩu</label>
-                                                    <input type="password" class="form-control" name="repassword"
-                                                           placeholder="Nhập lại mật khẩu">
+                                                    <input type="password" class="form-control" name="checknewpass"
+                                                           placeholder="Nhập lại mật khẩu" id="checknewpass">
                                                     <span class="help-block" style="color:red;"></span>
                                                 </div>
-                                                <button type="submit" id="submit" class="btn">Submit</button>
+                                                <button type="submit" id="add-data" class="btn">Submit</button>
                                             </form>
                                                 <script type="text/javascript">
                                                     $(document).ready(function(){
                                                         $('#change-pass').on('submit',function(event) {
                                                             event.preventDefault();
-                                                            var formData = $(this).serialize();
-                                                            // process the form
+                                                            // var formData = $(this).serialize();
+                                                            var currentpassword = $('#currentpassword').val();
+                                                            var newpass = $('#newpass').val();
+                                                            var checknewpass = $('#checknewpass').val();
+                                                            console.log(currentpassword);
+                                                            console.log(newpass);
+                                                            console.log(checknewpass);
+
                                                             $.ajax({
-                                                                type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-                                                                url         : "{{route('changepass')}}", // the url where we want to POST
-                                                                data        : formData, // our data object
-                                                                dataType    : "json",
-                                                                success:function(data){
-                                                                    console.log("success");
-                                                                    alert(data.success);
-
+                                                                url         : "{{ route('changepass') }}", // the url where we want to POST
+                                                                method       : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                                                                data        : {
+                                                                    currentpassword: currentpassword,
+                                                                    newpass: newpass,
+                                                                    checknewpass: checknewpass,
+                                                                    _token: '{{csrf_token()}}',
                                                                 },
-                                                                error:function(){
-                                                                    console.log("error");
-                                                                    alert(data.error);
+                                                                success:function(data){
+                                                                    alert(data);
+                                                                        $('#change-pass').trigger("reset");
+                                                                },
+                                                                error:function(data){
+                                                                    alert(data);
                                                                 }
-
                                                             });
                                                         });
+
                                                     });
                                                 </script>
                                         </div>
@@ -204,67 +211,7 @@
                                     </select>
                                 </div>
                                 <!-- Script lấy đơn vị hành chính -->
-                                <script>
-                                    $("select[name='city_id']").change(function() {
-                                        var city_id = $(this).val();
 
-                                        $.ajax({
-                                            url: '/admin/ajax/get-district',
-                                            method: 'get',
-                                            data: {
-                                                city_id: city_id,
-                                            },
-                                            success: function(data) {
-                                                $("select[name='district_id']").html('');
-                                                $.each(data, function(key, value) {
-                                                    $("select[name='district_id']").append(
-                                                        "<option value=" + value.id + ">" +
-                                                        value.name +
-                                                        "</option>"
-                                                    );
-                                                });
-                                            }
-                                        });
-                                    });
-
-                                    $("select[name='district_id']").change(function() {
-                                        var district_id = $(this).val();
-
-                                        $.ajax({
-                                            url: '/admin/ajax/get-town',
-                                            method: 'get',
-                                            data: {
-                                                district_id: district_id,
-                                            },
-                                            success: function(data) {
-                                                $("select[name='town_id']").html('');
-                                                $.each(data, function(key, value) {
-                                                    $("select[name='town_id']").append(
-                                                        "<option value=" + value.id + ">" +
-                                                        value.name +
-                                                        "</option>"
-                                                    );
-                                                });
-                                            }
-                                        });
-                                    });
-                                </script>
-
-                                <div class="form-group">
-                                    <select class="form-control btn-select-light" name="type" multiple="multiple">
-                                        @foreach($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <script>
-                                    $("select[name='type']").multipleSelect({
-                                        width: '100%',
-                                        multipleWidth: 132,
-                                        selectAll: false,
-                                        placeholder: "Chọn Loại Phòng",
-                                    });
-                                </script>
 
                                 <div class="form-group price">
                                     <div class="price-title">Chọn khoảng giá</div>

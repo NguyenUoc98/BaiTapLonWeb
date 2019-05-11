@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,8 @@ Route::post('dang-ky',[
     'as'=>'dang-ky',
     'uses'=>'PageController@postRegister'
 ]);
+
+
 //route cho thong tin ca nhan
 Route::get('infor','PageController@getInfor');
 
@@ -89,4 +92,20 @@ Route::post('changepass',[
 ]);
 
 //route cho comment
-Route::post('comment/id', 'CommentController@postComment');
+
+
+//route cho tim kiem
+Route::post('timkiem',[
+    'as'    =>'timkiem',
+    'uses'   =>'PageController@postTimKiem'
+]);
+
+Route::post('comment/{id}', 'CommentController@postComment');
+
+Route::get('getComment',[
+    'as'    =>'getComment',
+    'use'   =>'CommentController@getComment'
+]);
+
+
+

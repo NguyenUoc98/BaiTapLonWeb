@@ -18,9 +18,8 @@
                         <div class="tab-content">
                             <div class="tab-pane fade in active" id="tab_auth_login">
                                 <form class="form-horizontal"
-                                      role="form" method="POST" action="{{route('login')}}">
+                                      role="form" id="login" method="POST" name="login" >
                                     {!! csrf_field() !!}
-                                    <div class="hide alert alert-danger"></div>
                                     <div class="form-group">
                                         <label for="email" class="col-sm-3 col-md-3 control-label">Email</label>
                                         <div class="col-sm-8 col-md-8">
@@ -44,40 +43,67 @@
                                             <div class="pull-left help-block"><input type="checkbox" name="remember">
                                                 Ghi nhớ đăng nhập</div>
                                             <div class="pull-right"><button type="submit"
-                                                    class="btn btn-auth-submit">Đăng nhập</button></div>
+                                                    class="btn btn-auth-submit" >Đăng nhập</button></div>
                                         </div>
                                     </div>
+                                    <script type="text/javascript">
+                                        $(document).ready(function(){
+                                            $('#login').on('submit',function(event) {
+                                                event.preventDefault();
+                                                var email = $('#email').val();
+                                                var password = $('#password').val();
+                                                console.log(email);
+                                                console.log(password);
+                                                $.ajax({
+                                                    url         : "{{ route('login') }}", // the url where we want to POST
+                                                    method       : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                                                    data        : {
+                                                        email: email,
+                                                        password: password,
+                                                        _token: '{{csrf_token()}}',
+                                                    },
+                                                    success:function(data){
+
+                                                       if(data==0){
+                                                           alert("Bạn đã đăng nhập thành công !");
+                                                           $('#login').trigger("reset");
+                                                           location.reload();
+                                                       } else if (data==2) {
+                                                           alert("các trường không được để trống !");
+                                                       }
+                                                       else alert("Tài khoản hoặc mật khẩu không chính xác ");
+
+                                                    },
+                                                    error:function(data){
+                                                        alert(data);
+                                                    }
+                                                });
+                                            });
+
+                                        });
+                                    </script>
                                     <div class="clearfix"></div>
                                     <hr>
-                                    <div class="row">
-                                        <div class="col-md-12 text-center">
-                                            <a href="social/facebook" class="btn btn-md btn-social btn-facebook"> <i
-                                                    class="fa fa-facebook"></i> Đăng nhập bằng Facebook </a>
-                                            <a href="social/google" class="btn btn-md btn-social btn-google-plus">
-                                                <i class="fa fa-google-plus"></i> Đăng nhập bằng Google </a>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="text-center text-center-auth">
-                                            <p><a class="btn btn-link" href="password/email">Khôi phục mật khẩu</a>
-                                                để tìm lại mật khẩu</p>
-                                        </div>
-                                    </div>
                                 </form>
+                                <script type="text/javascript">
+                                    // function myFunction() {
+                                    //     var x = document.forms["login"]["email"].value;
+                                    //     if (x == "") {
+                                    //         var text="trường email không được để trống !";
+                                    //         document.getElementById("error").innerHTML = text;
+                                    //         return false;
+                                    //     }
+                                    //
+                                    // }
+                                </script>
                             </div>
 
 
 
                             <div class="tab-pane fade" id="tab_auth_register">
                                 <form class="form-horizontal" role="form"
-                                      method="POST" action="{{route('register')}}">
+                                      method="POST" id="register" >
                                     {!! csrf_field() !!}
-                                    <div class="hide alert alert-danger"></div>
-
-
-                                    {{--<input type="hidden" name="current_url" value="">--}}
-
                                     <div class="form-group">
                                         <label for="txt_fullname" class="col-sm-4 control-label">Tên hiển
                                             thị</label>
@@ -90,7 +116,7 @@
                                     <div class="form-group">
                                         <label for="txt_email" class="col-sm-4 control-label">Email</label>
                                         <div class="col-sm-6">
-                                            <input type="email" name="email" class="form-control" id="email"
+                                            <input type="email" name="email" class="form-control" id="email_re"
                                                 placeholder="Email ..." value="">
                                             <span class="help-block"></span>
                                         </div>
@@ -98,7 +124,7 @@
                                     <div class="form-group">
                                         <label for="txt_password" class="col-sm-4 control-label">Mật khẩu</label>
                                         <div class="col-sm-6">
-                                            <input type="password" name="password" class="form-control" id="password"
+                                            <input type="password" name="password" class="form-control" id="password_re"
                                                 placeholder="Mật khẩu ...">
                                             <span class="help-block"></span>
                                         </div>
@@ -108,30 +134,10 @@
                                             khẩu</label>
                                         <div class="col-sm-6">
                                             <input type="password" name="repassword" class="form-control"
-                                                id="password_confirmation" placeholder="Xác nhận mật khẩu ...">
+                                                id="repassword" placeholder="Xác nhận mật khẩu ...">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
-
-                                    {{--<div class="form-group">--}}
-                                        {{--<label for="txt_confirm" class="col-sm-4 control-label">Xác nhận</label>--}}
-                                        {{--<div class="col-sm-6">--}}
-                                            {{--<input type="text" name="captcha" class="form-control" id="captcha"--}}
-                                                {{--placeholder="Mã xác nhận ..." value="">--}}
-                                            {{--<span class="help-block"></span>--}}
-                                            {{--<span class="help-block"><small>Gồm 5 ký tự phân biệt chữ Hoa và chữ--}}
-                                                    {{--thường. </small></span>--}}
-                                            {{--<div class="col-md-12">--}}
-                                                {{--<img src="captcha/default?dXcUOjL9" alt="captcha" class="captcha-img"--}}
-                                                    {{--data-refresh-config="default">--}}
-                                                {{--<span class="pull-right"><a title="Lấy mã xác nhận mới"--}}
-                                                        {{--class="recapcha enable-tooltip" href="javascript:void(0);"><i--}}
-                                                            {{--class="fa fa-refresh fa-2x text-success"></i></a></span>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-
-
                                     <div class="form-group">
                                         <div class="col-sm-offset-4 col-sm-8">
                                             <button type="submit" class="btn btn-auth-submit">Đăng ký tài
@@ -139,13 +145,54 @@
                                         </div>
                                     </div>
                                 </form>
+                                <script type="text/javascript">
+                                    $(document).ready(function(){
+                                        $('#register').on('submit',function(event) {
+                                            event.preventDefault();
+                                            var name = $('#name').val();
+                                            var email_re = $('#email_re').val();
+                                            var password_re = $('#password_re').val();
+                                            var repassword = $('#repassword').val();
+                                            console.log(email_re);
+                                            console.log(password_re);
+                                            $.ajax({
+                                                url         : "{{ route('register') }}", // the url where we want to POST
+                                                method       : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                                                data        : {
+                                                    name: name,
+                                                    email_re: email_re,
+                                                    password_re: password_re,
+                                                    repassword: repassword,
+                                                    _token: '{{csrf_token()}}',
+                                                },
+                                                success:function(data){
+                                                    console.log(data);
+
+                                                    if (data==2) {
+                                                        alert("các trường không được để trống !");
+                                                    }
+                                                    else if (data==3){
+                                                       alert ("Mật khẩu và nhập lại mật khẩu không trùng nhau");
+                                                    }
+                                                    else if (data==4){
+                                                        alert("Email đã tồn tại!");
+                                                    }
+                                                    else {
+                                                        alert("Bạn đã đăng Ký thành công !");
+                                                        $('#login').trigger("reset");
+                                                    }
+
+                                                },
+                                                error:function(data){
+                                                    alert(data);
+                                                }
+                                            });
+                                        });
+
+                                    });
+                                </script>
                                 <hr>
-                                <div class="text-center">
-                                    <a href="social/facebook" class="btn btn-md btn-social btn-facebook"> <i
-                                            class="fa fa-facebook"></i> Đăng ký bằng Facebook </a>
-                                    <a href="social/facebook" class="btn btn-md btn-social btn-google-plus"> <i
-                                            class="fa fa-google-plus"></i> Đăng ký bằng Google </a>
-                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\House;
 use Illuminate\Support\Facades\Auth;
 use Hash;
+use Illuminate\Support\Facades\DB;
+use App\Comment;
 
 class PageController extends Controller
 {
@@ -22,21 +24,13 @@ class PageController extends Controller
 
     //Xu ly chuc nang dang nhap
     public function postLogin (Request $request){
-        $this->validate($request,[
-            'email' =>'required|email',
-            'password' => 'required|min:6'
-        ],[
-            'email.required' => 'Email là trường bắt buộc',
-            'email.email' => 'Email không đúng định dạng',
-            'password.required' => 'Mật khẩu là trường bắt buộc',
-            'password.min' => 'Mật khẩu phải chứa ít nhất 6 ký tự',
-        ]);
-
-        if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
-            return redirect()->route('trang-chu');
+        if (!isset($request->email)||!isset($request->password)){$message=2;}
+        else if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
+            $message=0;
         } else {
-            return redirect()->route('trang-chu')->with('erorr',"Đăng nhập không thành công");
+            $message=1;
         }
+        return $message;
     }
 
     //Xu ly chuc nang dang xuat
@@ -47,35 +41,42 @@ class PageController extends Controller
 
 //    Xu ly chuc nang dang ky
     public function postRegister(Request $request){
-        $this->validate($request,[
-            'email' =>'required|email',
-            'password' => 'required|min:6',
-            'repassword' => 'required|same:password',
-        ],[
-            'email.required' => 'Email là trường bắt buộc',
-            'email.email' => 'Email không đúng định dạng',
-            'password.required' => 'Mật khẩu là trường bắt buộc',
-            'password.min' => 'Mật khẩu phải chứa ít nhất 6 ký tự',
-            'repassword.required' => 'Bạn chưa nhập lại mật khẩu',
-            'repassword.same'=> 'Mật khẩu nhập lại chưa trùng khớp',
-        ]);
-
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->full_name = $request->name;
-        $user->phone_number = 0000;
-        $user->save();
-
-        return redirect()->route('trang-chu')->with('thongbao',"Đăng ký tài khoản thành công");
+        if(strcmp($request->password_re, $request->repassword) == 0){
+            $message=3; // mat khau va nhap lai mat khau khong trung nhau
+        }
+//        else if(sizeof(User::where('email','=',$request->email_re)) > 0) {
+//            $message=4; //ton tai tai khoan
+//        }
+        else {
+            $user = new User();
+            $user->name = $request->name;
+            $user->email = $request->email_re;
+            $user->password = bcrypt($request->password_re);
+            $user->full_name = $request->name;
+            $user->phone_number = 0000;
+            $user->save();
+            $message = 0;
+        }
+        return $message;
     }
 
     public function getHouseDetail(Request $request){
-        $house = House::find($request->id);
-        $user = User::find($house->user_id);
-        return view('pages.house_detail', compact('house', 'user'));
+        $house      = House::find($request->id);
+        $user       = User::find($house->user_id);
+        $comments   = Comment::all();
+        return view('pages.house_detail', compact('house', 'user', 'comments'));
     }
+    // Comment
+//    public function postComment(Request $request){
+//        $commnet = new Comment();
+//        $user->id = $request->name;
+//        $user->email = $request->email;
+//        $user->password = bcrypt($request->password);
+//        $user->full_name = $request->name;
+//        $comment->content = $request->content;
+//        $comment->save();
+//        return view('pages.house_detail/{{id}}', compact('comments'));
+//    }
 
     public function getAddHouse(){
         return view('pages.add_house');
@@ -106,31 +107,42 @@ class PageController extends Controller
     // thay mat khau ngươi dung
 
     public function changePassword(Request $request) {
-//        dd($request);
-        if (!(Hash::check($request->currentpass,Auth::user()->password)))
+
+        if (!isset($request->currentpassword)||!isset($request->newpass)||!isset($request->checknewpass))
+        { $message="Các trường không được để trống !";}
+        else if (!(Hash::check($request->currentpassword,Auth::user()->password)))
         {
             //neu mat khau nhap vao khong dung voi mat khau hien tai
-            return redirect()->back()->with("error","Mật khẩu bạn nhập không đúng");
-        }
-        if(strcmp($request->currentpassword, $request->newpass) == 0){
+            $message="Mật khẩu bạn nhập không đúng";
+        }else if(strcmp($request->currentpassword, $request->newpass) == 0){
             //Mat khau moi trung voi mat khau cu
-            return redirect()->back()->with("error","Mật khẩu mới của bạn không thể trùng với mật khẩu cũ.");
+            $message="Mật khẩu mới của bạn không thể trùng với mật khẩu cũ.";
+        }else if(strcmp($request->newpass, $request->checknewpass) != 0){
+            //Mat khau moi khac voi nhap lai mat khau
+            $message="Mật khẩu mới và nhập lại mật khẩu phải giống nhau.";
+        }else{
+//            $validatedData = $request->validate([
+//                'currentpass' => 'required',
+//                'newpass' => 'required|string|min:6|confirmed',
+//            ]);
+            //Cap nhat mat khau moi
+            $user = Auth::user();
+            $user->password = bcrypt($request->newpass);
+            $user->save();
+            $message="Mật khẩu được đổi thành công !";
         }
-        if(strcmp($request->newpassword, $request->checknewpass) != 0){
-            //Mat khau moi trung voi mat khau cu
-            return redirect()->back()->with("error","Mật khẩu mới và nhập lại mật khẩu phải giống nhau.");
-        }
-        $validatedData = $request->validate([
-            'currentpass' => 'required',
-            'newpass' => 'required|string|min:6|confirmed',
-        ]);
-        //Cap nhat mat khau moi
-        $user = Auth::user();
-        $user->password = bcrypt($request->new-password);
-        $user->save();
-        return redirect()->back()->with("success","Mật khẩu được đổi thành công !");
+
+         return $message;
+    }
 
 
+    public function postTimKiem(Request $request){
+        //dd($request->all());
+        $giadau = 1000000*$request->price_from;
+        $giacuoi = 1000000*$request->price_to;
+        $sql = 'city_id='.$request->city_id.' and type_id='.$request->type.' and price between '.$giadau.' and '.$giacuoi;
+        $houses = House::whereRaw($sql)->paginate(9);
+        return view('pages.tim_kiem', compact('houses'));
     }
 
 }
