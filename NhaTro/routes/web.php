@@ -2,7 +2,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -108,11 +107,9 @@ Route::get('getComment',[
     'use'   =>'CommentController@getComment'
 ]);
 
-<<<<<<< HEAD
+
 Route::get('tintuc/{id}',[
     'as'        =>'tintuc',
     'uses'      =>'PageController@getTinTucDetail'
 ]);
-=======
 
->>>>>>> 88d2036f2fbd67480d1ad6093db584724a249321

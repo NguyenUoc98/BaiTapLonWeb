@@ -586,9 +586,9 @@
                     <div class="col-xs-6 col-sm-3 col-md-2">
                         <h3>Phim</h3>
                         <ul>
-                            <li><h2><a href="http://ngoaingu.net/video/motivational" title="Motivational">Motivational</a></h2></li>
+                            <li><h<a href="http://ngoaingu.net/video/trailers-phim" title="Trailers Phim">Trailers Phim</a></h2></li>
+                            <li><h2>2><a href="http://ngoaingu.net/video/motivational" title="Motivational">Motivational</a></h2></li>
                             <li><h2><a href="http://ngoaingu.net/video/ted" title="TED">TED</a></h2></li>
-                            <li><h2><a href="http://ngoaingu.net/video/trailers-phim" title="Trailers Phim">Trailers Phim</a></h2></li>
                             <li><h2><a href="http://ngoaingu.net/video/hoc-tieng-anh-qua-bai-hat" title="Video nhạc">Video nhạc</a></h2></li>
                         </ul>
                     </div>

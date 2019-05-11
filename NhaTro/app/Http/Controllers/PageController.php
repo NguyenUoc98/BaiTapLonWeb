@@ -10,18 +10,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use App\Comment;
-<<<<<<< HEAD
-use App\Post;
+use App\Tintuc;
 
-=======
->>>>>>> 88d2036f2fbd67480d1ad6093db584724a249321
-// >>>>>>> 8f4c7542d6e2a26e040e2021b799916ca0920247
 
 class PageController extends Controller
 {
     public function getIndex(){
         $houses = House::orderBy('created_at','desc')->paginate(9);
-        $posts  = Post::orderBy('created_at','desc')->paginate(5);
+        $posts  = Tintuc::orderBy('created_at','desc')->paginate(5);
         return view('pages.home', compact('houses','posts'));
     }
 
@@ -87,11 +83,10 @@ class PageController extends Controller
         $comments   = Comment::all();
         return view('pages.house_detail', compact('house', 'user', 'comments'));
     }
-<<<<<<< HEAD
 
     // Tin tuc
     public function getTinTucDetail(Request $request){
-        $post      = Post::find($request->id);
+        $post      = Tintuc::find($request->id);
         return view('pages.tintuc_detail', compact('post'));
     }
 
@@ -106,9 +101,8 @@ class PageController extends Controller
         $comment->save();
         return view('pages.house_detail/{{id}}', compact('comments'));
     }
-=======
     
->>>>>>> 88d2036f2fbd67480d1ad6093db584724a249321
+
 
     public function getAddHouse(){
         return view('pages.add_house');

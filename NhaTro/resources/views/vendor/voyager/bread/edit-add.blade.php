@@ -55,7 +55,6 @@
                             $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
 
                             $formFields = [];
-
                             if(in_array("App\Traits\FormLayoutTrait", class_uses($dataTypeContent))){
                                 $formFields = $dataTypeContent->formFields();
                             }
