@@ -9,12 +9,15 @@ use Illuminate\Support\Facades\Auth;
 use Hash;
 use Illuminate\Support\Facades\DB;
 use App\Comment;
+use App\Tintuc;
+use TCG\Voyager\Models\Post;
 
 class PageController extends Controller
 {
     public function getIndex(){
         $houses = House::orderBy('created_at','desc')->paginate(9);
-        return view('pages.home', compact('houses'));
+        $posts  = Tintuc::orderBy('created_at','desc')->paginate(5);
+        return view('pages.home', compact('houses','posts'));
     }
 
     public function getCategory(Request $request){
@@ -66,6 +69,13 @@ class PageController extends Controller
         $comments   = Comment::all();
         return view('pages.house_detail', compact('house', 'user', 'comments'));
     }
+
+    // Tin tuc
+    public function getTinTucDetail(Request $request){
+        $post      = Tintuc::find($request->id);
+        return view('pages.tintuc_detail', compact('post'));
+    }
+
     // Comment
 //    public function postComment(Request $request){
 //        $commnet = new Comment();
@@ -77,6 +87,7 @@ class PageController extends Controller
 //        $comment->save();
 //        return view('pages.house_detail/{{id}}', compact('comments'));
 //    }
+
 
     public function getAddHouse(){
         return view('pages.add_house');
@@ -145,6 +156,11 @@ class PageController extends Controller
         return view('pages.tim_kiem', compact('houses'));
     }
 
+    //Phan get chi tiet bai viet
+    public function getPostDetail(Request $request){
+        $post      = Post::find($request->id);
+        return view('pages.post_detail', compact('post'));
+    }
 }
 
 

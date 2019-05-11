@@ -109,3 +109,24 @@ Route::get('getComment',[
 
 
 
+Route::get('tintuc/{id}',[
+    'as'        =>'tintuc',
+    'uses'      =>'PageController@getTinTucDetail'
+]);
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('auth/facebook', 'FacebookAuthController@redirectToProvider')->name('facebook.login') ;
+Route::get('auth/facebook/callback', 'FacebookAuthController@handleProviderCallback');
+
+Route::get('post-detail/{id}',[
+    'as'        =>'post-detail',
+    'uses'      =>'PageController@getPostDetail'
+]);
+
+
+

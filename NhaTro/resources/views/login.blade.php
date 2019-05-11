@@ -84,6 +84,13 @@
                                     </script>
                                     <div class="clearfix"></div>
                                     <hr>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="text-center text-center-auth">
+                                            <p><a class="btn btn-link" href="password/email">Khôi phục mật khẩu</a>
+                                                để tìm lại mật khẩu</p>
+                                        </div>
+                                    </div>
                                 </form>
                                 <script type="text/javascript">
                                     // function myFunction() {
