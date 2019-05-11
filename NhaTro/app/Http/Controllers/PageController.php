@@ -6,12 +6,14 @@ use App\User;
 use Illuminate\Http\Request;
 use App\House;
 use Illuminate\Support\Facades\Auth;
-// <<<<<<< HEAD
+
 use Illuminate\Support\Facades\DB;
 
 use App\Comment;
+
 use App\Tintuc;
 
+use TCG\Voyager\Models\Post;
 
 class PageController extends Controller
 {
@@ -138,6 +140,13 @@ class PageController extends Controller
         $sql = 'city_id='.$request->city_id.' and type_id='.$request->type.' and price between '.$giadau.' and '.$giacuoi;
         $houses = House::whereRaw($sql)->paginate(9);
         return view('pages.tim_kiem', compact('houses'));
+    }
+
+
+    //Phan get chi tiet bai viet
+    public function getPostDetail(Request $request){
+        $post      = Post::find($request->id);
+        return view('pages.post_detail', compact('post'));
     }
 }
 

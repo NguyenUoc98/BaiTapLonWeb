@@ -51,7 +51,7 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-md-12 text-center">
-                                            <a href="social/facebook" class="btn btn-md btn-social btn-facebook"> <i
+                                            <a href="{{route('facebook.login')}}" class="btn btn-md btn-social btn-facebook"> <i
                                                     class="fa fa-facebook"></i> Đăng nhập bằng Facebook </a>
                                             <a href="social/google" class="btn btn-md btn-social btn-google-plus">
                                                 <i class="fa fa-google-plus"></i> Đăng nhập bằng Google </a>
