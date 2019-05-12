@@ -16,8 +16,8 @@ class PageController extends Controller
 {
     public function getIndex(){
         $houses = House::orderBy('created_at','desc')->paginate(9);
-        $posts  = Tintuc::orderBy('created_at','desc')->paginate(5);
-        return view('pages.home', compact('houses','posts'));
+//        $posts  = Tintuc::orderBy('created_at','desc')->paginate(5);
+        return view('pages.home', compact('houses'));
     }
 
     public function getCategory(Request $request){
@@ -66,8 +66,37 @@ class PageController extends Controller
     public function getHouseDetail(Request $request){
         $house      = House::find($request->id);
         $user       = User::find($house->user_id);
-        $comments   = Comment::all();
-        return view('pages.house_detail', compact('house', 'user', 'comments'));
+//        $comments   = Comment::all();
+        return view('pages.house_detail', compact('house', 'user'));
+    }
+
+    public function postAddHouse(Request $request){
+        foreach($request->image as $image){
+            $name=$image->getClientOriginalName();
+            $image->move(public_path().'/storage/houses/', $name);
+            $data[] = 'houses\\'.$name;
+        }
+
+        $house = new House();
+        $house->user_id     = Auth::user()->id;
+        $house->title       = $request->title;
+        $house->price       = $request->price;
+        $house->acreage     = $request->acreage;
+        $house->type_id     = $request->type_id;
+        $house->address     = $request->address;
+        $house->city_id     = $request->city_id;
+        $house->district_id = $request->district_id;
+        $house->town_id     = $request->town_id;
+        $house->tang        = $request->tang;
+        $house->giadien     = $request->giadien;
+        $house->gianuoc     = $request->gianuoc;
+        $house->tienich     = $request->tienich;
+        $house->description = $request->description;
+        $house->image       = json_encode($data);
+        $house->status      = 0;
+        $house->save();
+
+        return back()->with('success', 'Ðăng tin thành công');
     }
 
     // Tin tuc

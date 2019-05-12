@@ -26,6 +26,13 @@
 
     <script src="/themes/client/js/wysibb/jquery.wysibb.min.js.js.php"></script>
     <link rel="stylesheet" href="/themes/client/js/wysibb/theme/default/wbbtheme.css" />
+    <!-- Init WysiBB BBCode editor -->
+    <script>
+        $(function() {
+            $("#editor").wysibb();
+        })
+    </script>
+
     <script type="text/javascript">
     var client_upload_img = 'dang-tin/upload';
     </script>

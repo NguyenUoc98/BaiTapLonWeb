@@ -114,7 +114,7 @@
 
                                         @foreach($images as $image)
                                         <div class="owl-item" style="width: 894px;">
-                                            <div class="item"><img class="img-responsive" src="{{Voyager::image($image)}}" alt="#">
+                                            <div class="item"><img class="img-responsive" src="/nhatro/small/{{str_replace('\\','/',$image)}}" alt="#">
                                             </div>
                                         </div>
                                         @endforeach
@@ -125,7 +125,7 @@
 
                                     <div id="sync2" class="owl-carousel">
                                         @foreach($images as $image)
-                                        <div class="item"><img class="img-responsive" src="{{Voyager::image($image)}}" alt="#"></div>
+                                        <div class="item"><img class="img-responsive" src="/nhatro/medium/{{str_replace('\\','/',$image)}}" alt="#"></div>
                                         @endforeach
                                     </div>
                                 </div>
