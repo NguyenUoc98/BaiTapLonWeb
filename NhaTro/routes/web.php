@@ -56,6 +56,11 @@ Route::get('add-house',[
     'uses'      =>'PageController@getAddHouse'
 ]);
 
+Route::post('/add-house',[
+    'as'        =>'add-house',
+    'uses'       =>'PageController@postAddHouse'
+]);
+
 Route::get('/admin/ajax/get-district',[
     'as'        =>'/admin/ajax/get-district',
     'uses'      =>'AjaxController@getDistrictByCity'
